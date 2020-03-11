@@ -1,2 +1,3 @@
 [submodule "CareSync/CareKit-Private"]
+	path = CareSync/CareKit-Private
 	url = git@github.com:carekit-apple/CareKit-Private.git
