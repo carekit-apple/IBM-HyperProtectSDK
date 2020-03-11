@@ -14,6 +14,7 @@
 		035EF90F24196927005E2943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 035EF90D24196927005E2943 /* LaunchScreen.storyboard */; };
 		035EF91F24196A53005E2943 /* CareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EF91E24196A53005E2943 /* CareViewController.swift */; };
 		035EF92124196A58005E2943 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EF92024196A58005E2943 /* TipView.swift */; };
+		03D488502419A4850006A92C /* OCKMongoEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4884F2419A4850006A92C /* OCKMongoEndpoint.swift */; };
 		03EEB926241980AD002FA74E /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F5C24197F4E00A4613F /* CareKit.framework */; };
 		03EEB927241980AD002FA74E /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F5C24197F4E00A4613F /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03EEB928241980AD002FA74E /* CareKitStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6524197F5400A4613F /* CareKitStore.framework */; };
@@ -21,7 +22,6 @@
 		03EEB92A241980AD002FA74E /* CareKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6E24197F5B00A4613F /* CareKitUI.framework */; };
 		03EEB92B241980AD002FA74E /* CareKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6E24197F5B00A4613F /* CareKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03EEB9322419855E002FA74E /* MongoKitten in Frameworks */ = {isa = PBXBuildFile; productRef = 03EEB9312419855E002FA74E /* MongoKitten */; };
-		03EEB93424198575002FA74E /* CareKitMongoDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EEB93324198575002FA74E /* CareKitMongoDB.swift */; };
 		03EEB936241985D2002FA74E /* SyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EEB935241985D2002FA74E /* SyncViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +99,7 @@
 		03732F5424197F4E00A4613F /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = "CareKit-Private/CareKit/CareKit.xcodeproj"; sourceTree = "<group>"; };
 		03732F5F24197F5400A4613F /* CareKitStore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitStore.xcodeproj; path = "CareKit-Private/CareKitStore/CareKitStore.xcodeproj"; sourceTree = "<group>"; };
 		03732F6824197F5B00A4613F /* CareKitUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitUI.xcodeproj; path = "CareKit-Private/CareKitUI/CareKitUI.xcodeproj"; sourceTree = "<group>"; };
-		03EEB93324198575002FA74E /* CareKitMongoDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareKitMongoDB.swift; sourceTree = "<group>"; };
+		03D4884F2419A4850006A92C /* OCKMongoEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OCKMongoEndpoint.swift; path = ../../Sources/CareKitHyperProtectSDK/OCKMongoEndpoint.swift; sourceTree = "<group>"; };
 		03EEB935241985D2002FA74E /* SyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,7 +146,7 @@
 				035EF91E24196A53005E2943 /* CareViewController.swift */,
 				03EEB935241985D2002FA74E /* SyncViewController.swift */,
 				035EF92024196A58005E2943 /* TipView.swift */,
-				03EEB93324198575002FA74E /* CareKitMongoDB.swift */,
+				03D4884F2419A4850006A92C /* OCKMongoEndpoint.swift */,
 				035EF90824196927005E2943 /* Assets.xcassets */,
 				035EF90D24196927005E2943 /* LaunchScreen.storyboard */,
 				035EF91024196927005E2943 /* Info.plist */,
@@ -336,10 +336,10 @@
 			files = (
 				035EF90324196924005E2943 /* AppDelegate.swift in Sources */,
 				035EF91F24196A53005E2943 /* CareViewController.swift in Sources */,
-				03EEB93424198575002FA74E /* CareKitMongoDB.swift in Sources */,
 				035EF90524196924005E2943 /* SceneDelegate.swift in Sources */,
 				035EF92124196A58005E2943 /* TipView.swift in Sources */,
 				03EEB936241985D2002FA74E /* SyncViewController.swift in Sources */,
+				03D488502419A4850006A92C /* OCKMongoEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
