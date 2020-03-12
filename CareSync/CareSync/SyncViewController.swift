@@ -11,11 +11,11 @@ import CareKitStore
 
 final class SyncViewController: UIViewController {
     
-    let store: OCKStore
+    let store: OCKSynchronizedStore
     let label = UILabel()
     
     init() {
-        self.store = (UIApplication.shared.delegate as! AppDelegate).synchronizedStoreManager.store as! OCKStore
+        self.store = (UIApplication.shared.delegate as! AppDelegate).synchronizedStoreManager.store as! OCKSynchronizedStore
         super.init(nibName: nil, bundle: nil)
     }
     

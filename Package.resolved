@@ -15,7 +15,7 @@
         "repositoryURL": "git@github.com:carekit-apple/CareKit-Private.git",
         "state": {
           "branch": "ibm-hyperprotect-sdk",
-          "revision": "0bc45903114f2ff20e63d03f0b3b353ab8f5bff3",
+          "revision": "58c77d9dc06709ba6acf15bde4bfa6eef6c6da11",
           "version": null
         }
       },
