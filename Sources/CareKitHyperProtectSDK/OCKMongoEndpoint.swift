@@ -2,20 +2,28 @@ import Foundation
 import CareKitStore
 import MongoKitten
 
+
 public final class OCKMongoEndpoint: OCKSyncEndpoint {
     
     private let db: MongoDatabase
     private let tasks: MongoCollection
     private let outcomes: MongoCollection
     private var transaction: MongoTransactionDatabase?
+    private var pollingTimer: Timer?
     private let encoder = BSONEncoder()
     private let decoder = BSONDecoder()
     private let isDirty = "isDirty"
+    
+    public weak var delegate: OCKSyncEndpointDelegate?
     
     public init(databaseUri: String) throws {
         self.db = try MongoDatabase.synchronousConnect(databaseUri)
         self.tasks = self.db[String(describing: OCKTask.self)]
         self.outcomes = self.db[String(describing: OCKOutcome.self)]
+        self.pollingTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { [weak self] timer in
+            guard let self = self else { return }
+            self.delegate?.remoteEndpointRequestedSync(self)
+        })
     }
     
     public func exchangeChangeSets(
