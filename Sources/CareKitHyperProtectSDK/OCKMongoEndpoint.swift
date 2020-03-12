@@ -93,7 +93,10 @@ public final class OCKMongoEndpoint: OCKSyncEndpoint {
             _ = try outcomes.insert(bson).wait()
             
         case let (.outcome(outcome), .delete):
-            _ = try outcomes.deleteOne(where: ["id": outcome.id]).wait()
+            _ = try outcomes.deleteOne(where:[
+                "taskUUID": outcome.taskUUID.uuidString,
+                "taskOccurrenceIndex": outcome.taskOccurrenceIndex
+            ]).wait()
         }
     }
 }
