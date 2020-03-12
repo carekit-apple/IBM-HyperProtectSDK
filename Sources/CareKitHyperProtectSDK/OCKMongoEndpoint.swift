@@ -1,3 +1,4 @@
+import Foundation
 import CareKitStore
 import MongoKitten
 
@@ -24,7 +25,7 @@ public final class OCKMongoEndpoint: OCKSyncEndpoint {
         do {
             transaction = try db.startTransaction(autoCommitChanges: true)
     
-            let remoteChangeSet = currentChangeSet()
+            let remoteChangeSet = try currentChangeSet()
             let necessaryChanges = remoteChangeSet.resolveChanges(against: localChangeSet)
             try necessaryChanges.operations.forEach(handle)
             
@@ -59,17 +60,27 @@ public final class OCKMongoEndpoint: OCKSyncEndpoint {
         .deleteOutcomes
     }
     
-    private func currentChangeSet() -> OCKChangeSet {
-        let dirtyTaskDocuments = try! tasks.find([isDirty: true]).allResults().wait()
-        let dirtyTasks = try! dirtyTaskDocuments.map { try decoder.decode(OCKTask.self, from: $0) }
-        let records = dirtyTasks.map { task in
+    private func currentChangeSet() throws -> OCKChangeSet {
+        let dirtyTaskDocuments = try tasks.find([isDirty: true]).allResults().wait()
+        let dirtyTasks = try dirtyTaskDocuments.map { try decoder.decode(OCKTask.self, from: $0) }
+        let taskRecords = dirtyTasks.map { task in
             OCKChangeRecord(
                 operation: .add,
                 entity: .task(task),
                 date: task.createdDate!)
         }
         
-        return OCKChangeSet(operations: records)
+        let dirtyOutcomeDocuments = try outcomes.find([isDirty: true]).allResults().wait()
+        let outcomeRecords = try dirtyOutcomeDocuments.map { doc -> OCKChangeRecord in
+            let deletedDate = doc["deletedDate"] as? Date
+            let outcome = try decoder.decode(OCKOutcome.self, from: doc)
+            return OCKChangeRecord(
+                operation: deletedDate == nil ? .add : .delete ,
+                entity: .outcome(outcome),
+                date: deletedDate == nil ? outcome.createdDate! : deletedDate!)
+        }
+        
+        return OCKChangeSet(operations: taskRecords + outcomeRecords)
     }
     
     private func undirtySyncedRecords() throws {
