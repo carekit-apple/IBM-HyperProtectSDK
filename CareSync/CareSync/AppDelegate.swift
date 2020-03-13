@@ -38,8 +38,14 @@ import HealthKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let synchronizedStoreManager: OCKSynchronizedStoreManager = {
-        let store = try! IBMHyperProtectStore(name: "SampleAppStore", uri: "mongodb://mopbookpro.local/care_sample")
+        
+        let store = try! IBMHyperProtectStore(
+            name: "SampleAppStore",
+            userID: "abc",
+            uri: "mongodb://mopbookpro.local/care_sample")
+        
         store.populateSampleData()
+        
         return OCKSynchronizedStoreManager(wrapping: store)
     }()
 

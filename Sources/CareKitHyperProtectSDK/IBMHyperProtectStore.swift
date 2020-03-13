@@ -32,10 +32,10 @@ import CareKitStore
 
 public final class IBMHyperProtectStore: OCKSynchronizedStore {
     
-    public init(name: String, uri: String) throws {
+    public init(name: String, userID: String, uri: String) throws {
         super.init(
             name: name,
             type: .onDisk,
-            synchronizer: try IBMMongoEndpoint(databaseUri: uri))
+            synchronizer: try IBMMongoEndpoint(databaseUri: uri, userID: userID))
     }
 }

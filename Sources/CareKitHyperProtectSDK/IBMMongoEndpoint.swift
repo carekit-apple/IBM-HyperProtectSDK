@@ -33,8 +33,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import UIKit
 import MongoKitten
 
+private let userIDKey = "userID"
+private let taskUUIDKey = "taskUUID"
+private let occurenceKey = "taskOccurrenceIndex"
+private let deletedDateKey = "deletedDate"
+
 public final class IBMMongoEndpoint: OCKSyncEndpoint {
     
+    private let userID: String
     private let db: MongoDatabase
     private let tasks: MongoCollection
     private let outcomes: MongoCollection
@@ -42,11 +48,13 @@ public final class IBMMongoEndpoint: OCKSyncEndpoint {
     private var pollingTimer: Timer?
     private let encoder = BSONEncoder()
     private let decoder = BSONDecoder()
-    private let isDirty = "isDirty"
+    private let isDirtyKey: String
     
     public weak var delegate: OCKSyncEndpointDelegate?
     
-    public init(databaseUri: String) throws {
+    public init(databaseUri: String, userID: String) throws {
+        self.userID = userID
+        self.isDirtyKey = "isDirtyForDevice:\(UIDevice.current.identifierForVendor!.uuidString)"
         self.db = try MongoDatabase.synchronousConnect(databaseUri)
         self.tasks = self.db[String(describing: OCKTask.self)]
         self.outcomes = self.db[String(describing: OCKOutcome.self)]
@@ -99,7 +107,11 @@ public final class IBMMongoEndpoint: OCKSyncEndpoint {
     }
     
     private func currentChangeSet() throws -> OCKChangeSet {
-        let dirtyTaskDocuments = try tasks.find([isDirty: true]).allResults().wait()
+        let dirtyTaskDocuments = try tasks.find([
+            userIDKey: userID,
+            isDirtyKey: true
+        ]).allResults().wait()
+        
         let dirtyTasks = try dirtyTaskDocuments.map { try decoder.decode(OCKTask.self, from: $0) }
         let taskRecords = dirtyTasks.map { task in
             OCKChangeRecord(
@@ -108,9 +120,13 @@ public final class IBMMongoEndpoint: OCKSyncEndpoint {
                 date: task.createdDate!)
         }
         
-        let dirtyOutcomeDocuments = try outcomes.find([isDirty: true]).allResults().wait()
+        let dirtyOutcomeDocuments = try outcomes.find([
+            userIDKey: userID,
+            isDirtyKey: true
+        ]).allResults().wait()
+        
         let outcomeRecords = try dirtyOutcomeDocuments.map { doc -> OCKChangeRecord in
-            let deletedDate = doc["deletedDate"] as? Date
+            let deletedDate = doc[deletedDateKey] as? Date
             let outcome = try decoder.decode(OCKOutcome.self, from: doc)
             return OCKChangeRecord(
                 operation: deletedDate == nil ? .add : .delete ,
@@ -122,15 +138,24 @@ public final class IBMMongoEndpoint: OCKSyncEndpoint {
     }
     
     private func undirtySyncedRecords() throws {
-        _ = try tasks.updateMany(where: [isDirty: true], setting: [isDirty: false], unsetting: nil).wait()
-        _ = try outcomes.updateMany(where: [isDirty: true], setting: [isDirty: false], unsetting: nil).wait()
+        _ = try tasks.updateMany(where: [
+            userIDKey: userID,
+            isDirtyKey: true
+        ], setting: [isDirtyKey: false], unsetting: nil).wait()
+        
+        _ = try outcomes.updateMany(where: [
+            userIDKey: userID,
+            isDirtyKey: true
+        ], setting: [isDirtyKey: false], unsetting: nil).wait()
     }
     
     private func handle(_ record: OCKChangeRecord) throws {
         switch (record.entity, record.operation) {
         case let (.task(task), .add):
             var bson = try encoder.encode(task)
-            bson.appendValue(false, forKey: isDirty)
+            bson.appendValue(false, forKey: isDirtyKey)
+            bson.appendValue(userID, forKey: userIDKey)
+            
             _ = try tasks.insert(bson).wait()
             
         case (.task, .delete):
@@ -138,13 +163,15 @@ public final class IBMMongoEndpoint: OCKSyncEndpoint {
             
         case let (.outcome(outcome), .add):
             var bson = try encoder.encode(outcome)
-            bson.appendValue(false, forKey: isDirty)
+            bson.appendValue(false, forKey: isDirtyKey)
+            bson.appendValue(userID, forKey: userIDKey)
             _ = try outcomes.insert(bson).wait()
             
         case let (.outcome(outcome), .delete):
             _ = try outcomes.deleteOne(where:[
-                "taskUUID": outcome.taskUUID.uuidString,
-                "taskOccurrenceIndex": outcome.taskOccurrenceIndex
+                userIDKey: userID,
+                taskUUIDKey: outcome.taskUUID.uuidString,
+                occurenceKey: outcome.taskOccurrenceIndex
             ]).wait()
         }
     }
