@@ -3,7 +3,7 @@ import CareKitStore
 import MongoKitten
 
 
-public final class OCKMongoEndpoint: OCKSyncEndpoint {
+public final class IBMMongoEndpoint: OCKSyncEndpoint {
     
     private let db: MongoDatabase
     private let tasks: MongoCollection

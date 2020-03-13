@@ -13,6 +13,6 @@ public final class IBMHyperProtectStore: OCKSynchronizedStore {
         super.init(
             name: name,
             type: .onDisk,
-            synchronizer: try OCKMongoEndpoint(databaseUri: uri))
+            synchronizer: try IBMMongoEndpoint(databaseUri: uri))
     }
 }

@@ -66,19 +66,6 @@ class CareViewController: OCKDailyPageViewController {
             case .failure(let error): print("Error: \(error)")
             case .success(let tasks):
 
-                // Add a non-CareKit view into the list
-                let tipTitle = "Benefits of exercising"
-                let tipText = "Learn how activity can promote a healthy pregnancy."
-
-                // Only show the tip view on the current date
-                if Calendar.current.isDate(date, inSameDayAs: Date()) {
-                    let tipView = TipView()
-                    tipView.headerView.titleLabel.text = tipTitle
-                    tipView.headerView.detailLabel.text = tipText
-                    tipView.imageView.image = UIImage(named: "exercise.jpg")
-                    listViewController.appendView(tipView, animated: false)
-                }
-
                 // Since the kegel task is only scheduled every other day, there will be cases
                 // where it is not contained in the tasks array returned from the query.
                 if let kegelsTask = tasks.first(where: { $0.id == "kegels" }) {
