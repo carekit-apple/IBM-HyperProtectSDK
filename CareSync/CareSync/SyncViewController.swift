@@ -1,11 +1,3 @@
-//
-//  SyncViewController.swift
-//  CareSync
-//
-//  Created by Erik Hornberger on 3/11/20.
-//  Copyright © 2020 Erik Hornberger. All rights reserved.
-//
-
 import UIKit
 import CareKitStore
 
