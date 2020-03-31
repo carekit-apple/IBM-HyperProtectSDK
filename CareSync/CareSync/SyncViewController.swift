@@ -36,12 +36,14 @@ final class SyncViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         store.synchronize { [weak self] result in
-            switch result {
-            case .success:
-                self?.label.text = "Success!\nSwipe down to dismiss!"
-                
-            case let .failure(error):
-                self?.label.text = "Failure: \(error.localizedDescription)\nSwipe down to dismiss."
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self?.label.text = "Success!\nSwipe down to dismiss!"
+                    
+                case let .failure(error):
+                    self?.label.text = "Failure: \(error.localizedDescription)\nSwipe down to dismiss."
+                }
             }
         }
     }
