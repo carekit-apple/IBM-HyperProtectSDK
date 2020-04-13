@@ -3,11 +3,11 @@ import CareKitStore
 
 final class SyncViewController: UIViewController {
     
-    let store: OCKSynchronizedStore
+    let store: OCKStore
     let label = UILabel()
     
     init() {
-        self.store = (UIApplication.shared.delegate as! AppDelegate).synchronizedStoreManager.store as! OCKSynchronizedStore
+        self.store = (UIApplication.shared.delegate as! AppDelegate).synchronizedStoreManager.store as! OCKStore
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,15 +35,11 @@ final class SyncViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store.synchronize { [weak self] result in
+        store.synchronize { [weak self] error in
             DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    self?.label.text = "Success!\nSwipe down to dismiss!"
-                    
-                case let .failure(error):
-                    self?.label.text = "Failure: \(error.localizedDescription)\nSwipe down to dismiss."
-                }
+                self?.label.text = error == nil ?
+                    "Success!\nSwipe down to dismiss!" :
+                    "Failure: \(error!.localizedDescription)\nSwipe down to dismiss."
             }
         }
     }

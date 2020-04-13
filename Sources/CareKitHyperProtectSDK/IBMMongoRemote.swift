@@ -28,14 +28,45 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+import UIKit
 import CareKitStore
 
-public final class IBMHyperProtectStore: OCKSynchronizedStore {
-    
-    public init(name: String, userID: String, uri: String) throws {
-        super.init(
-            name: name,
-            type: .onDisk,
-            synchronizer: try IBMMongoEndpoint(databaseUri: uri, userID: userID))
+public final class IBMMongoRemote: OCKRemoteSynchronizable {
+
+    public weak var delegate: OCKRemoteSynchronizableDelegate?
+
+    public var automaticallySynchronizesAfterEachModification: Bool = true
+
+    public func pullRevisions(
+        since date: Date,
+        completion: @escaping (Result<OCKRevisionRecord, Error>) -> Void) {
+
+        // TODO: @IBM
+        fatalError("Not implemented!")
+    }
+
+    public func pushRevisions(
+        deviceRevision: OCKRevisionRecord,
+        completion: @escaping (Error?) -> Void) {
+
+        // TODO: @IBM
+        fatalError("Not implemented!")
+    }
+
+    public func fullSync(
+        ingestChanges: @escaping (OCKRevisionRecord, @escaping (Error?) -> Void) -> Void,
+        updateProgress: @escaping (Double) -> Void,
+        completion: @escaping (Error?) -> Void) {
+
+        // TODO: @IBM
+        fatalError("Not implemented!")
+    }
+
+    public func resolveConflict(
+        _ conflict: OCKMergeConflictDescription,
+        completion: @escaping (OCKMergeConflictResolutionStrategy) -> Void) {
+
+        // TODO: @IBM
+        fatalError("Not implemented!")
     }
 }

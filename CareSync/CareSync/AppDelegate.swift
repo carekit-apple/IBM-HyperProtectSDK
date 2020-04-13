@@ -38,11 +38,13 @@ import HealthKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let synchronizedStoreManager: OCKSynchronizedStoreManager = {
-        
-        let store = try! IBMHyperProtectStore(
-            name: "SampleAppStore",
-            userID: "abc",
-            uri: "mongodb://mopbookpro.local/care_sample")
+
+        let ibmRemote = IBMMongoRemote()
+
+        let store = OCKStore(
+            name: "sample",
+            type: .onDisk,
+            remote: ibmRemote)
         
         store.populateSampleData()
         
@@ -61,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-private extension OCKSynchronizedStore {
+private extension OCKStore {
 
     // Adds tasks and contacts into the store
     func populateSampleData() { //swiftlint:disable:this function_body_length
