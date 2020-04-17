@@ -32,8 +32,8 @@ import UIKit
 import CareKitStore
 
 public final class IBMMongoRemote: OCKRemoteSynchronizable {
-    private var url = "http://localhost:3000/"
-    private var timeout = 2; // seconds
+    private var url : String
+    private var timeout : Int // seconds
     private var id : String
     private var appleId : String
     
@@ -64,7 +64,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - apiLocation: uri format (https://ip:port)
     ///   - apiTimeOut: timeout
     ///   - appleId: Apple ID  used for authentication and authorization
-    private init(id : String? = "id", apiLocation : String? = "http://localhost:3000/", apiTimeOut : Int? = 2, appleId : String){
+    init(id : String? = "id", apiLocation : String? = "http://localhost:3000/", apiTimeOut : Int? = 2, appleId : String){
         self.id = id!
         self.url = apiLocation!
         self.timeout = apiTimeOut!
@@ -79,7 +79,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         since knowledgeVector: OCKRevisionRecord.KnowledgeVector,
         completion: @escaping(Result<OCKRevisionRecord, Error>) -> Void) {
         
-        pullFronBackend(since : knowledgeVector, from: .revisionRecord) { (result :
+        pullFronBackend(since: knowledgeVector, from: .revisionRecord) { (result :
             Result<OCKRevisionRecord, Error>) in
             completion(result)
         }
@@ -112,7 +112,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
                 completion(error)
             case let .success(revision):
                 ingestChanges(revision, { error in
-                    print(error?.localizedDescription ?? "Successfully ingested revision!")
+                    debugPrint(error?.localizedDescription ?? "Successfully ingested revision!")
                 })
             }
         }
