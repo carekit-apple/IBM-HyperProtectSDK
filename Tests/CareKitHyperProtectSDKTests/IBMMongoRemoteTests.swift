@@ -4,7 +4,7 @@ import XCTest
 final class IBMMongoRemoteTests: XCTestCase {
     
     func testInitializer() {
-        _ = IBMMongoRemote(appleId: "")
+        _ = IBMMongoRemote(id: "", appleId: "")
     }
     
     static var allTests = [
