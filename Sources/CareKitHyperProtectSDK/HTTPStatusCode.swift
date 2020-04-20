@@ -303,9 +303,3 @@ enum HTTPStatusCode: Int, Error {
     }
 
 }
-
-extension HTTPURLResponse {
-    fileprivate var status: HTTPStatusCode? {
-        return HTTPStatusCode(rawValue: statusCode)
-    }
-}

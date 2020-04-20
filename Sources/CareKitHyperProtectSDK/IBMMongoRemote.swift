@@ -32,26 +32,26 @@ import UIKit
 import CareKitStore
 
 public final class IBMMongoRemote: OCKRemoteSynchronizable {
-    private var url : String
-    private var timeout : Int // seconds
-    private var id : String
-    private var appleId : String
+    private var url: String
+    private var timeout: Int // seconds
+    private var id: String
+    private var appleId: String
     
     private enum Resource : String {
-        case outcome = "outcome"
-        case task = "task"
-        case contact = "contact"
-        case patient = "patient"
-        case careplan = "careplan"
-        case changeset = "changeset"
-        case revisionRecord = "revisionRecord"
+        case outcome
+        case task
+        case contact
+        case patient
+        case careplan
+        case changeset
+        case revisionRecord
     }
     
     private enum Method : String {
-        case get = "GET"
-        case post = "POST"
-        case delete = "DELETE"
-        case patch = "PATCH"
+        case GET
+        case POST
+        case DELETE
+        case PATCH
     }
     
     public weak var delegate: OCKRemoteSynchronizableDelegate?
@@ -64,10 +64,10 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - apiLocation: uri format (https://ip:port)
     ///   - apiTimeOut: timeout
     ///   - appleId: Apple ID  used for authentication and authorization
-    init(id : String? = "id", apiLocation : String? = "http://localhost:3000/", apiTimeOut : Int? = 2, appleId : String){
-        self.id = id!
-        self.url = apiLocation!
-        self.timeout = apiTimeOut!
+    init(id : String, apiLocation : String = "http://localhost:3000/", apiTimeOut : Int = 2, appleId : String){
+        self.id = id
+        self.url = apiLocation
+        self.timeout = apiTimeOut
         self.appleId = appleId
     }
     
@@ -79,7 +79,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         since knowledgeVector: OCKRevisionRecord.KnowledgeVector,
         completion: @escaping(Result<OCKRevisionRecord, Error>) -> Void) {
         
-        pullFronBackend(since: knowledgeVector, from: .revisionRecord) { (result :
+        pullFromBackend(OCKRevisionRecord.self) { (result :
             Result<OCKRevisionRecord, Error>) in
             completion(result)
         }
@@ -89,7 +89,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         deviceRevision: OCKRevisionRecord,
         completion: @escaping (Error?) -> Void) {
         
-        pushToBackend(with: deviceRevision, to: .revisionRecord, using: .post) { (result :
+        pushToBackend(with: deviceRevision, using: .POST) { (result :
             Result<HTTPStatusCode, Error>) in
             switch result {
             case let .failure(error):
@@ -105,7 +105,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         updateProgress: @escaping (Double) -> Void,
         completion: @escaping (Error?) -> Void) {
         
-        pullFronBackend(from: .revisionRecord) { (result :
+        pullFromBackend(OCKRevisionRecord.self) { (result :
             Result<OCKRevisionRecord, Error>) in
             switch result {
             case let .failure(error):
@@ -129,19 +129,10 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     /// Makes POST/PUT/PATCH calls to the backend with payload. Note, PUT calls are idempotent, POST/PATCH calls are not
     /// - Parameters:
     ///   - data: body of call (type OCKxxx)
-    ///   - id: user id
-    ///   - location: url location (http://ip:port format)
-    ///   - resource: type of resource being accessed (OCKxxx)
     ///   - method: POST/PUT/PATCH method
-    ///   - completion: return value of JSON converted to type T (instance of OCKxxx)
-    private func pushToBackend<T : Codable>(with data: T, to resource : Resource, using method: Method, completion: @escaping (Result<HTTPStatusCode, Error>) -> Void)
-    {
-        var urlString = url + resource.rawValue
-        
-        if (id != ""){
-            urlString += "?id=" + id
-        }
-        
+    ///   - completion: HTTP Status Code or error
+    private func pushToBackend<F: Fetchable>(with data: F, using method: Method, completion: @escaping (Result<HTTPStatusCode, Error>) -> Void) {
+        let urlString = url + F.endpoint
         var request = URLRequest(url:  URL(string: urlString)!)
         
         request.httpMethod = method.rawValue
@@ -150,6 +141,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         
         if data == nil {
             completion(.failure(HTTPStatusCode.badRequest))
+            return
         }
         
         let outputStr = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
@@ -184,23 +176,18 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     
     /// Makes GET calls from backend
     /// - Parameters:
-    ///   - id: user id
-    ///   - location: url location (http://ip:port format)
-    ///   - resource: type of resource being accessed (OCKxxx)
-    ///   - completion: return value of JSON converted to type T (instance of OCKxxx)
-    private func pullFronBackend<T : Codable>(since knowledgeVector : OCKRevisionRecord.KnowledgeVector? = nil, from resource : Resource, completion: @escaping (Result<T, Error>) -> Void)
-    {
-        var urlString = url + resource.rawValue
-        
-        if (id != ""){
-            urlString += "?id=" + id
-        }
+    ///   - fetchable: expected type of data from GET request
+    ///   - knowledgeVector: logical vector clock
+    ///   - completion: object of type OCKxxx or Error
+    private func pullFromBackend<F: Fetchable>(_ fetchable: F.Type, since knowledgeVector : OCKRevisionRecord.KnowledgeVector? = nil, completion: @escaping (Result<F, Error>) -> Void) {
+        //private func pullFronBackend<T : Codable>(since knowledgeVector : OCKRevisionRecord.KnowledgeVector? = nil, from resource : Resource, completion: @escaping (Result<T, Error>) -> Void)
+        let urlString = url + F.endpoint
         
         let requestURL = URL(string: urlString)
         var request = URLRequest(url: requestURL!)
-        var result: T? = nil
+        var result: F? = nil
         
-        request.httpMethod = Method.get.rawValue
+        request.httpMethod = Method.GET.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         let requestTask = URLSession.shared.dataTask(with: request) {
@@ -227,7 +214,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
                 debugPrint("JSON returned : \n" + outputStr!)
                 
                 do {
-                    result = try JSONDecoder().decode(T.self, from : data)
+                    result = try JSONDecoder().decode(F.self, from : data)
                 } catch let DecodingError.dataCorrupted(context) {
                     debugPrint(context)
                 } catch let DecodingError.keyNotFound(key, context) {
@@ -252,4 +239,11 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         
         requestTask.resume()
     }
+}
+
+private protocol Fetchable: Codable {
+    static var endpoint: String { get }
+}
+extension OCKRevisionRecord: Fetchable {
+    static var endpoint: String { "revisionRecord" }
 }
