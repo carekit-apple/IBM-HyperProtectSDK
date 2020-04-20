@@ -36,28 +36,14 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     private var timeout: Int // seconds
     private var id: String
     private var appleId: String
-    
-    private enum Resource : String {
-        case outcome
-        case task
-        case contact
-        case patient
-        case careplan
-        case changeset
-        case revisionRecord
-    }
-    
+
     private enum Method : String {
         case GET
         case POST
         case DELETE
         case PATCH
     }
-    
-    public weak var delegate: OCKRemoteSynchronizableDelegate?
-    
-    public var automaticallySynchronizesAfterEachModification: Bool = true
-    
+
     ///
     /// - Parameters:
     ///   - id: unique id to identify patient. This will typically be OCKPatient.id
@@ -70,61 +56,51 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         self.timeout = apiTimeOut
         self.appleId = appleId
     }
-    
-    public func pullRevisions(since date: Date, completion: @escaping (Result<OCKRevisionRecord, Error>) -> Void) {
-        fatalError("Not implemented!")
-    }
-    
-    func pullRevisions(
+
+    // MARK: OCKRemoteSynchronizable
+
+    public weak var delegate: OCKRemoteSynchronizableDelegate?
+
+    public var automaticallySynchronizes: Bool = true
+
+    public func pullRevisions(
         since knowledgeVector: OCKRevisionRecord.KnowledgeVector,
-        completion: @escaping(Result<OCKRevisionRecord, Error>) -> Void) {
-        
-        pullFromBackend(OCKRevisionRecord.self) { (result :
-            Result<OCKRevisionRecord, Error>) in
-            completion(result)
+        mergeRevision: @escaping (OCKRevisionRecord, @escaping (Error?) -> Void) -> Void,
+        completion: @escaping (Error?) -> Void) {
+
+        pullFromBackend(OCKRevisionRecord.self) { result in
+            switch result {
+            case let .failure(error):
+                completion(error)
+            case let .success(record):
+                mergeRevision(record, completion)
+            }
         }
     }
-    
+
     public func pushRevisions(
         deviceRevision: OCKRevisionRecord,
+        overwriteRemote: Bool,
         completion: @escaping (Error?) -> Void) {
-        
-        pushToBackend(with: deviceRevision, using: .POST) { (result :
-            Result<HTTPStatusCode, Error>) in
+
+        pushToBackend(with: deviceRevision, using: .POST) { result in
             switch result {
             case let .failure(error):
                 completion(error)
             case .success(_):
-                return
+                completion(nil)
             }
         }
     }
-    
-    public func fullSync(
-        ingestChanges: @escaping (OCKRevisionRecord, @escaping (Error?) -> Void) -> Void,
-        updateProgress: @escaping (Double) -> Void,
-        completion: @escaping (Error?) -> Void) {
-        
-        pullFromBackend(OCKRevisionRecord.self) { (result :
-            Result<OCKRevisionRecord, Error>) in
-            switch result {
-            case let .failure(error):
-                completion(error)
-            case let .success(revision):
-                ingestChanges(revision, { error in
-                    debugPrint(error?.localizedDescription ?? "Successfully ingested revision!")
-                })
-            }
-        }
-    }
-    
-    public func resolveConflict(
+
+    public func chooseConflicResolutionPolicy(
         _ conflict: OCKMergeConflictDescription,
-        completion: @escaping (OCKMergeConflictResolutionStrategy) -> Void) {
-        
-        // TODO: @IBM
-        fatalError("Not implemented!")
+        completion: @escaping (OCKMergeConflictResolutionPolicy) -> Void) {
+
+        completion(.keepDevice)
     }
+
+    // MARK: Internal
     
     /// Makes POST/PUT/PATCH calls to the backend with payload. Note, PUT calls are idempotent, POST/PATCH calls are not
     /// - Parameters:
@@ -138,11 +114,6 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         request.httpMethod = method.rawValue
         request.httpBody = try! JSONEncoder().encode(data)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        if data == nil {
-            completion(.failure(HTTPStatusCode.badRequest))
-            return
-        }
         
         let outputStr = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
         debugPrint("Input :" + outputStr!)
