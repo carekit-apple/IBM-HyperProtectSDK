@@ -199,6 +199,26 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
                 let outputStr = String(data: data, encoding: String.Encoding.utf8) as String?
                 //debugPrint("JSON returned : \n" + outputStr!)
                 
+                // FIXME: Even if there are no changes, the server still needs to send a valid revision
+                // {
+                //   "entities": [],
+                //   "knowledgeVector": {
+                //     "processes": {
+                //       "UDFK-2342-4234-23434": 1,
+                //       "FSEF-3242-2342-42344": 3
+                //     }
+                //   }
+                // }
+                //
+                // If the server always sends a revision, then this whole block of code simplifies to
+                //
+                // do {
+                //     let result = try JSONDecoder().decode(F.self, from: data)
+                //     completion(.success(result))
+                // } catch {
+                //     completion(.failure(error))
+                // }
+
                 // If no result found (remote is empty)
                 if (outputStr == "[]") {
                     completion(.success(OCKRevisionRecord(entities: [], knowledgeVector: .init()) as! F))
