@@ -82,16 +82,16 @@ class IBMMongoRemoteTests: XCTestCase {
         mongo.automaticallySynchronizes = false
         XCTAssertNoThrow(try performSynchronously {mongo.clearRemote(completion: $0)})
         
-        let remote = OCKStore(name: "remote", type: .inMemory, remote: mongo)
+        let local = OCKStore(name: "remote", type: .inMemory, remote: mongo)
         
         let schedule = OCKSchedule.dailyAtTime(hour: 1, minutes: 42, start: Date(), end: nil, text: nil)
         var taskA = OCKTask(id: "A", title: "A", carePlanUUID: nil, schedule: schedule)
-        try remote.addTaskAndWait(taskA);
-        let tasks = try remote.fetchTasksAndWait();
-        debugPrint(tasks)
-        //XCTAssert(!tasks.isEmpty)
-//        let outcomeA = OCKOutcome(taskUUID:  taskA.uuid!, taskOccurrenceIndex: 0, values: [])
-//        try remote.addOutcomeAndWait(outcomeA)
+        taskA = try local.addTaskAndWait(taskA);
+        
+        let outcomeA = OCKOutcome(taskUUID:  taskA.uuid!, taskOccurrenceIndex: 0, values: [])
+        try local.addOutcomeAndWait(outcomeA)
+
+        try local.syncAndWait()
     }
 
     func testNonConflictingSyncAcrossStores() throws {

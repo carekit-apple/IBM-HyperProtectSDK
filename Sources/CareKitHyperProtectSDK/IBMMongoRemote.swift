@@ -200,7 +200,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
                 //debugPrint("JSON returned : \n" + outputStr!)
                 
                 // If no result found (remote is empty)
-                if (outputStr == "{}") {
+                if (outputStr == "[]") {
                     completion(.success(OCKRevisionRecord(entities: [], knowledgeVector: .init()) as! F))
                     return
                 }
