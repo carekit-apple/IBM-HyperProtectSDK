@@ -31,23 +31,23 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import CareKit
 import CareKitStore
 import Contacts
-import UIKit
 import HealthKit
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let synchronizedStoreManager: OCKSynchronizedStoreManager = {
 
-        let ibmRemote = IBMMongoRemote()
+        let ibmRemote = IBMMongoRemote(id: "", appleId: "")
 
         let store = OCKStore(
             name: "sample",
             type: .onDisk,
             remote: ibmRemote)
-        
+
         store.populateSampleData()
-        
+
         return OCKSynchronizedStoreManager(wrapping: store)
     }()
 
