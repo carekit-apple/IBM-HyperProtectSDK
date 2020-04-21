@@ -46,7 +46,7 @@ private func performSynchronously(
         })
     }
     
-    _ = group.wait(timeout: .now() + 2.0) // seconds
+    _ = group.wait(timeout: .now() + 1.0) // seconds
         
     if let error = syncError {
         throw error
@@ -96,48 +96,48 @@ class IBMMongoRemoteTests: XCTestCase {
 
     func testNonConflictingSyncAcrossStores() throws {
         let mongo = IBMMongoRemote(id: "", appleId: "")
-        mongo.automaticallySynchronizes = true
+        mongo.automaticallySynchronizes = false
         XCTAssertNoThrow(try performSynchronously {mongo.clearRemote(completion: $0)})
 
         let remote = OCKStore(name: "remote", type: .inMemory, remote: mongo)
         
         let endpoint = OCKStoreEndpoint(remote: remote)
-        endpoint.automaticallySynchronizes = true
-        //let local = OCKStore(name: "local", type: .inMemory, remote: endpoint)
+        endpoint.automaticallySynchronizes = false
+        let local = OCKStore(name: "local", type: .inMemory, remote: endpoint)
         
         let schedule = OCKSchedule.dailyAtTime(hour: 1, minutes: 42, start: Date(), end: nil, text: nil)
         var taskA = OCKTask(id: "A", title: "A", carePlanUUID: nil, schedule: schedule)
         var taskB = OCKTask(id: "B", title: "B", carePlanUUID: nil, schedule: schedule)
         taskA = try remote.addTaskAndWait(taskA)
-        //taskB = try local.addTaskAndWait(taskB)
+        taskB = try local.addTaskAndWait(taskB)
         
         let outcomeA = OCKOutcome(taskUUID:  taskA.uuid!, taskOccurrenceIndex: 0, values: [])
-//        let outcomeB = OCKOutcome(taskUUID: taskB.uuid!, taskOccurrenceIndex: 0, values: [])
+        let outcomeB = OCKOutcome(taskUUID: taskB.uuid!, taskOccurrenceIndex: 0, values: [])
         try remote.addOutcomeAndWait(outcomeA)
-//        try local.addOutcomeAndWait(outcomeB)
+        try local.addOutcomeAndWait(outcomeB)
         
-        //XCTAssertNoThrow(try local.syncAndWait())
+        XCTAssertNoThrow(try local.syncAndWait())
         
-        //let localTasks = try local.fetchTasksAndWait()
-        //let localOutcomes = try local.fetchOutcomesAndWait()
-        //let remoteTasks = try remote.fetchTasksAndWait()
-        //let remoteOutcomes = try remote.fetchOutcomesAndWait()
-        
-        //XCTAssert(localTasks == remoteTasks)
-        //XCTAssert(localOutcomes == remoteOutcomes)
-        //XCTAssert(localTasks.count == 2)
-        //XCTAssert(localOutcomes.count == 2)
+        let localTasks = try local.fetchTasksAndWait()
+        let localOutcomes = try local.fetchOutcomesAndWait()
+        let remoteTasks = try remote.fetchTasksAndWait()
+        let remoteOutcomes = try remote.fetchOutcomesAndWait()
+
+        XCTAssert(localTasks == remoteTasks)
+        XCTAssert(localOutcomes == remoteOutcomes)
+        XCTAssert(localTasks.count == 2)
+        XCTAssert(localOutcomes.count == 2)
     }
     
     func testKeepRemoteTaskWithFirstVersionOfTasks() throws {
-        let dummyRemote = IBMMongoRemote(id: "", appleId: "")
-        dummyRemote.automaticallySynchronizes = true
-        XCTAssertNoThrow(try performSynchronously {dummyRemote.clearRemote(completion: $0)})
+        let mongoRemote = IBMMongoRemote(id: "", appleId: "")
+        mongoRemote.automaticallySynchronizes = false
+        XCTAssertNoThrow(try performSynchronously {mongoRemote.clearRemote(completion: $0)})
 
-        let remote = OCKStore(name: "remote", type: .inMemory, remote: dummyRemote)
+        let remote = OCKStore(name: "remote", type: .inMemory, remote: mongoRemote)
         
         let endpoint = OCKStoreEndpoint(remote: remote)
-        endpoint.automaticallySynchronizes = true
+        endpoint.automaticallySynchronizes = false
         endpoint.conflictPolicy = .keepRemote
         let local = OCKStore(name: "local", type: .inMemory, remote: endpoint)
         
@@ -167,14 +167,14 @@ class IBMMongoRemoteTests: XCTestCase {
     }
     
     func testKeepRemoteTaskReplacingEntireLocalVersionChain() throws {
-        let dummyRemote = IBMMongoRemote(id: "", appleId: "")
-        dummyRemote.automaticallySynchronizes = true
-        XCTAssertNoThrow(try performSynchronously {dummyRemote.clearRemote(completion: $0)})
+        let mongoRemote = IBMMongoRemote(id: "", appleId: "")
+        mongoRemote.automaticallySynchronizes = false
+        XCTAssertNoThrow(try performSynchronously {mongoRemote.clearRemote(completion: $0)})
 
-        let remote = OCKStore(name: "remote", type: .inMemory, remote: dummyRemote)
+        let remote = OCKStore(name: "remote", type: .inMemory, remote: mongoRemote)
         
         let endpoint = OCKStoreEndpoint(remote: remote)
-        endpoint.automaticallySynchronizes = true
+        endpoint.automaticallySynchronizes = false
         endpoint.conflictPolicy = .keepRemote
         let local = OCKStore(name: "local", type: .inMemory, remote: endpoint)
         
@@ -210,14 +210,14 @@ class IBMMongoRemoteTests: XCTestCase {
     // device ---B---C (keep)
     // remote ---A
     func testKeepEntireLocalTaskVersionChain() throws {
-        let dummyRemote = IBMMongoRemote(id: "", appleId: "")
-        dummyRemote.automaticallySynchronizes = true
-        XCTAssertNoThrow(try performSynchronously {dummyRemote.clearRemote(completion: $0)})
+        let mongoRemote = IBMMongoRemote(id: "", appleId: "")
+        mongoRemote.automaticallySynchronizes = false
+        XCTAssertNoThrow(try performSynchronously {mongoRemote.clearRemote(completion: $0)})
 
-        let remote = OCKStore(name: "remote", type: .inMemory, remote: dummyRemote)
+        let remote = OCKStore(name: "remote", type: .inMemory, remote: mongoRemote)
         
         let endpoint = OCKStoreEndpoint(remote: remote)
-        endpoint.automaticallySynchronizes = true
+        endpoint.automaticallySynchronizes = false
         endpoint.conflictPolicy = .keepDevice
         let local = OCKStore(name: "local", type: .inMemory, remote: endpoint)
         
@@ -254,14 +254,14 @@ class IBMMongoRemoteTests: XCTestCase {
     // A--
     //    \__D (Overwrite Local)
     func testOverwritePartialLocalTaskVersionChain() throws {
-        let dummyRemote = IBMMongoRemote(id: "", appleId: "")
-        dummyRemote.automaticallySynchronizes = true
-        XCTAssertNoThrow(try performSynchronously {dummyRemote.clearRemote(completion: $0)})
+        let mongoRemote = IBMMongoRemote(id: "", appleId: "")
+        mongoRemote.automaticallySynchronizes = false
+        XCTAssertNoThrow(try performSynchronously {mongoRemote.clearRemote(completion: $0)})
 
-        let remote = OCKStore(name: "remote", type: .inMemory, remote: dummyRemote)
+        let remote = OCKStore(name: "remote", type: .inMemory, remote: mongoRemote)
         
         let endpoint = OCKStoreEndpoint(remote: remote)
-        endpoint.automaticallySynchronizes = true
+        endpoint.automaticallySynchronizes = false
         endpoint.conflictPolicy = .keepRemote
         let local = OCKStore(name: "local", type: .inMemory, remote: endpoint)
         

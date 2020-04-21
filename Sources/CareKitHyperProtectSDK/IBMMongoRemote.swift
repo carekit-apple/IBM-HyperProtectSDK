@@ -125,8 +125,8 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         request.httpBody = try! JSONEncoder().encode(data)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let outputStr = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
-        debugPrint("Input :" + outputStr!)
+        //let outputStr = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
+        //debugPrint("Input :" + outputStr!)
         
         let requestTask = URLSession.shared.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
@@ -276,7 +276,7 @@ extension URL {
 // MARK:- Testing only
 public extension IBMMongoRemote {
     func clearRemote(completion: @escaping (Error) -> Void){
-        debugPrint("DELETE CALLED")
+        //debugPrint("DELETE CALLED")
         let urlString = url + "revisionRecord/"
         let requestURL = URL(string: urlString)
         var request = URLRequest(url: requestURL!)
