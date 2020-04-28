@@ -48,14 +48,17 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///
     /// - Parameters:
     ///   - id: unique id to identify patient. This will typically be OCKPatient.id
+    ///   - conflictPolicy: determines how conflict resolutions will be resolved.
     ///   - apiLocation: uri format (https://ip:port)
     ///   - apiTimeOut: timeout
     ///   - appleId: Apple ID  used for authentication and authorization
-    init(id: String,
-         conflictPolicy: OCKMergeConflictResolutionPolicy = OCKMergeConflictResolutionPolicy.keepRemote,
-         apiLocation: String = "http://localhost:3000/",
-         apiTimeOut: Int = 2,
-         appleId: String){
+    init(
+        id: String,
+        conflictPolicy: OCKMergeConflictResolutionPolicy = OCKMergeConflictResolutionPolicy.keepRemote,
+        apiLocation:String = "http://localhost:3000/",
+        apiTimeOut:Int = 2,
+        appleId: String) {
+
         self.id = id
         self.url = apiLocation
         self.timeout = apiTimeOut
@@ -113,7 +116,11 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - data: body of call (type OCKxxx)
     ///   - method: POST/PUT/PATCH method
     ///   - completion: HTTP Status Code or error
-    private func pushToBackend<F: Fetchable>(with data: F, using method: Method, completion: @escaping (Result<HTTPStatusCode, Error>) -> Void) {
+    private func pushToBackend<F: Fetchable>(
+        with data: F,
+        using method: Method,
+        completion: @escaping (Result<HTTPStatusCode, Error>) -> Void) {
+
         //debugPrint("PUT CALLED")
         //Thread.callStackSymbols.forEach{print($0)}
         assert(method != .GET, "Cannot push using the GET method")
@@ -160,7 +167,11 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - fetchable: expected type of data from GET request
     ///   - knowledgeVector: logical vector clock
     ///   - completion: object of type OCKxxx or Error
-    private func pullFromBackend<F: Fetchable>(_ fetchable: F.Type, since knowledgeVector : OCKRevisionRecord.KnowledgeVector? = nil, completion: @escaping (Result<F, Error>) -> Void) {
+    private func pullFromBackend<F: Fetchable>(
+        _ fetchable: F.Type,
+        since knowledgeVector: OCKRevisionRecord.KnowledgeVector? = nil,
+        completion: @escaping (Result<F, Error>) -> Void) {
+
         //debugPrint("GET CALLED")
         //Thread.callStackSymbols.forEach{print($0)}
         let urlString = url + F.endpoint
