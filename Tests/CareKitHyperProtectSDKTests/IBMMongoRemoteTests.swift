@@ -65,9 +65,9 @@ class IBMMongoRemoteTests: XCTestCase {
         let sync = IBMMongoRemote(id: "", appleId: "")
         XCTAssertNoThrow(try performSynchronously {sync.clearRemote(completion: $0)})
         let store = OCKStore(name: "test", type: .inMemory, remote: sync)
-        XCTAssert(store.context.knowledgeVector.clock == 1)
+        XCTAssert(store.context.knowledgeVector.clock(for: store.context.clockID) == 1)
         XCTAssertNoThrow(try store.syncAndWait())
-        XCTAssert(store.context.knowledgeVector.clock == 2)
+        XCTAssert(store.context.knowledgeVector.clock(for: store.context.clockID) == 2)
     }
     
     func testSyncCanBeStartedIfPreviousSyncHasCompleted() {
@@ -310,7 +310,7 @@ class DummyEndpoint: OCKRemoteSynchronizable {
     var automaticallySynchronizes = true
     var shouldSucceed = true
     var delay: TimeInterval = 0.0
-    weak var delegate: OCKRemoteSynchronizableDelegate?
+    weak var delegate: OCKRemoteSynchronizationDelegate?
     
     private(set) var timesPullWasCalled = 0
     private(set) var timesPushWasCalled = 0
@@ -344,7 +344,7 @@ class DummyEndpoint: OCKRemoteSynchronizable {
         completion(nil)
     }
     
-    func chooseConflicResolutionPolicy(
+    func chooseConflictResolutionPolicy(
         _ conflict: OCKMergeConflictDescription,
         completion: @escaping (OCKMergeConflictResolutionPolicy) -> Void) {
         completion(conflictPolicy)
@@ -374,7 +374,7 @@ class DummyEndpoint: OCKRemoteSynchronizable {
 
 private class OCKStoreEndpoint: OCKRemoteSynchronizable {
     private let store: OCKStore
-    weak var delegate: OCKRemoteSynchronizableDelegate?
+    weak var delegate: OCKRemoteSynchronizationDelegate?
     
     var lastSync = Date()
     var conflictPolicy = OCKMergeConflictResolutionPolicy.keepRemote
@@ -388,8 +388,9 @@ private class OCKStoreEndpoint: OCKRemoteSynchronizable {
         since knowledgeVector: OCKRevisionRecord.KnowledgeVector,
         mergeRevision: @escaping (OCKRevisionRecord, @escaping (Error?) -> Void) -> Void,
         completion: @escaping (Error?) -> Void) {
-        
-        let revision = store.computeRevision(since: knowledgeVector.clock)
+
+        let clock = knowledgeVector.clock(for: store.context.clockID)
+        let revision = store.computeRevision(since: clock)
         mergeRevision(revision, completion)
     }
     
@@ -401,7 +402,7 @@ private class OCKStoreEndpoint: OCKRemoteSynchronizable {
         store.mergeRevision(deviceRevision, completion: completion)
     }
     
-    func chooseConflicResolutionPolicy(
+    func chooseConflictResolutionPolicy(
         _ conflict: OCKMergeConflictDescription,
         completion: @escaping (OCKMergeConflictResolutionPolicy) -> Void) {
         completion(conflictPolicy)

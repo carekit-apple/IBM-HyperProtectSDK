@@ -68,7 +68,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     
     // MARK: OCKRemoteSynchronizable
     
-    public weak var delegate: OCKRemoteSynchronizableDelegate?
+    public weak var delegate: OCKRemoteSynchronizationDelegate?
     
     public var automaticallySynchronizes: Bool = true
     
@@ -101,11 +101,11 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
             }
         }
     }
-    
-    public func chooseConflicResolutionPolicy(
+
+    public func chooseConflictResolutionPolicy(
         _ conflict: OCKMergeConflictDescription,
         completion: @escaping (OCKMergeConflictResolutionPolicy) -> Void) {
-        
+
         completion(.keepDevice)
     }
     
@@ -179,7 +179,18 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         var result: F? = nil
 
         if let knowledgeVector = knowledgeVector {
-            requestURL?.appendQueryItem(name: "clock", value: String(knowledgeVector.clock))
+
+            /// FIXME?
+            ///
+            /// The purpose of sending the knowledge vector is so that the server can grasp
+            /// what the device last knew about the server. When the server receives the
+            /// vector, it should get the clock for its own uuid. This tells the server that
+            /// the device already has records up to that certain time. The server can then
+            /// generate a diff from that time until present and send it back to the client.
+            ///
+            /// Presently we are sending the clock for *this* process. I'm not sure if that is
+            /// sufficient for the server to be able to generate the correct diff.
+            requestURL?.appendQueryItem(name: "clock", value: "0")
         }
 
         var request = URLRequest(url: requestURL!)
