@@ -52,7 +52,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - apiLocation: uri format (https://ip:port)
     ///   - apiTimeOut: timeout
     ///   - appleId: Apple ID  used for authentication and authorization
-    init(
+    public init(
         id: String,
         conflictPolicy: OCKMergeConflictResolutionPolicy = OCKMergeConflictResolutionPolicy.keepRemote,
         apiLocation:String = "http://localhost:3000/",
