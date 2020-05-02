@@ -19,6 +19,6 @@ let package = Package(
             dependencies: ["CareKitStore"]),
         .testTarget(
             name: "CareKitHyperProtectSDKTests",
-            dependencies: ["CareKitHyperProtectSDK"]),
+            dependencies: ["CareKitHyperProtectSDK", "CareKitStore"]),
     ]
 )
