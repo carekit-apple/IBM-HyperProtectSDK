@@ -21,6 +21,7 @@
 		03EEB92A241980AD002FA74E /* CareKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6E24197F5B00A4613F /* CareKitUI.framework */; };
 		03EEB92B241980AD002FA74E /* CareKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6E24197F5B00A4613F /* CareKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03EEB936241985D2002FA74E /* SyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EEB935241985D2002FA74E /* SyncViewController.swift */; };
+		F30A8B4D244FADFB00DF36D5 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A8B46244FADFB00DF36D5 /* HTTPStatusCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		03732F6824197F5B00A4613F /* CareKitUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitUI.xcodeproj; path = "CareKit-Private/CareKitUI/CareKitUI.xcodeproj"; sourceTree = "<group>"; };
 		03D4884F2419A4850006A92C /* IBMMongoRemote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBMMongoRemote.swift; path = ../../Sources/CareKitHyperProtectSDK/IBMMongoRemote.swift; sourceTree = "<group>"; };
 		03EEB935241985D2002FA74E /* SyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncViewController.swift; sourceTree = "<group>"; };
+		F30A8B46244FADFB00DF36D5 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPStatusCode.swift; path = ../../Sources/CareKitHyperProtectSDK/HTTPStatusCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		035EF90124196924005E2943 /* CareSync */ = {
 			isa = PBXGroup;
 			children = (
+				F30A8B46244FADFB00DF36D5 /* HTTPStatusCode.swift */,
 				035EF90224196924005E2943 /* AppDelegate.swift */,
 				035EF90424196924005E2943 /* SceneDelegate.swift */,
 				035EF91E24196A53005E2943 /* CareViewController.swift */,
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30A8B4D244FADFB00DF36D5 /* HTTPStatusCode.swift in Sources */,
 				035EF90324196924005E2943 /* AppDelegate.swift in Sources */,
 				035EF91F24196A53005E2943 /* CareViewController.swift in Sources */,
 				035EF90524196924005E2943 /* SceneDelegate.swift in Sources */,

@@ -114,7 +114,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - method: POST/PUT/PATCH method
     ///   - completion: HTTP Status Code or error
     private func pushToBackend<F: Fetchable>(with data: F, using method: Method, completion: @escaping (Result<HTTPStatusCode, Error>) -> Void) {
-        //debugPrint("PUT CALLED")
+        debugPrint("PUT CALLED")
         //Thread.callStackSymbols.forEach{print($0)}
         assert(method != .GET, "Cannot push using the GET method")
         
@@ -125,8 +125,8 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         request.httpBody = try! JSONEncoder().encode(data)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        //let outputStr = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
-        //debugPrint("Input :" + outputStr!)
+        let outputStr = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
+        debugPrint("Pushing this JSON to backend :" + outputStr!)
         
         let requestTask = URLSession.shared.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
@@ -161,14 +161,14 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - knowledgeVector: logical vector clock
     ///   - completion: object of type OCKxxx or Error
     private func pullFromBackend<F: Fetchable>(_ fetchable: F.Type, since knowledgeVector : OCKRevisionRecord.KnowledgeVector? = nil, completion: @escaping (Result<F, Error>) -> Void) {
-        //debugPrint("GET CALLED")
+        debugPrint("GET CALLED")
         //Thread.callStackSymbols.forEach{print($0)}
         let urlString = url + F.endpoint
         var requestURL = URL(string: urlString)
         var result: F? = nil
-
+        
         if let knowledgeVector = knowledgeVector {
-            requestURL?.appendQueryItem(name: "clock", value: String(knowledgeVector.clock))
+            requestURL?.appendQueryItem(name: "knowledgeVector", value: try! String(data: JSONEncoder().encode(knowledgeVector), encoding: .utf8))
         }
 
         var request = URLRequest(url: requestURL!)
@@ -197,34 +197,8 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
                 return
             } else {
                 let outputStr = String(data: data, encoding: String.Encoding.utf8) as String?
-                //debugPrint("JSON returned : \n" + outputStr!)
-                
-                // FIXME: Even if there are no changes, the server still needs to send a valid revision
-                // {
-                //   "entities": [],
-                //   "knowledgeVector": {
-                //     "processes": {
-                //       "UDFK-2342-4234-23434": 1,
-                //       "FSEF-3242-2342-42344": 3
-                //     }
-                //   }
-                // }
-                //
-                // If the server always sends a revision, then this whole block of code simplifies to
-                //
-                // do {
-                //     let result = try JSONDecoder().decode(F.self, from: data)
-                //     completion(.success(result))
-                // } catch {
-                //     completion(.failure(error))
-                // }
+                debugPrint("JSON returned : \n" + outputStr!)
 
-                // If no result found (remote is empty)
-                if (outputStr == "[]") {
-                    completion(.success(OCKRevisionRecord(entities: [], knowledgeVector: .init()) as! F))
-                    return
-                }
-                
                 do {
                     result = try JSONDecoder().decode(F.self, from : data)
                 } catch let DecodingError.dataCorrupted(context) {
@@ -262,6 +236,7 @@ extension OCKRevisionRecord: Fetchable {
 
 extension URL {
     mutating func appendQueryItem(name: String, value: String?) {
+        debugPrint("SENDING THIS KV JSON " + value!)
         guard var urlComponents = URLComponents(string: absoluteString) else { return }
         var queryItems: [URLQueryItem] = urlComponents.queryItems ??  []
         
@@ -276,7 +251,7 @@ extension URL {
 // MARK:- Testing only
 public extension IBMMongoRemote {
     func clearRemote(completion: @escaping (Error) -> Void){
-        //debugPrint("DELETE CALLED")
+        debugPrint("DELETE CALLED")
         let urlString = url + "revisionRecord/"
         let requestURL = URL(string: urlString)
         var request = URLRequest(url: requestURL!)

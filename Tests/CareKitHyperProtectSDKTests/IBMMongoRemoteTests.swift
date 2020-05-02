@@ -72,6 +72,7 @@ class IBMMongoRemoteTests: XCTestCase {
     
     func testSyncCanBeStartedIfPreviousSyncHasCompleted() {
         let sync = IBMMongoRemote(id: "", appleId: "")
+        XCTAssertNoThrow(try performSynchronously {sync.clearRemote(completion: $0)})
         let store = OCKStore(name: "test", type: .inMemory, remote: sync)
         XCTAssertNoThrow(try store.syncAndWait())
         XCTAssertNoThrow(try store.syncAndWait())
@@ -80,18 +81,29 @@ class IBMMongoRemoteTests: XCTestCase {
     func testRemoteStore() throws {
         let mongo = IBMMongoRemote(id: "", appleId: "")
         mongo.automaticallySynchronizes = false
-        XCTAssertNoThrow(try performSynchronously {mongo.clearRemote(completion: $0)})
+        //XCTAssertNoThrow(try performSynchronously {mongo.clearRemote(completion: $0)})
         
-        let local = OCKStore(name: "remote", type: .inMemory, remote: mongo)
+        //let local = OCKStore(name: "remote", type: .inMemory, remote: mongo)
         
         let schedule = OCKSchedule.dailyAtTime(hour: 1, minutes: 42, start: Date(), end: nil, text: nil)
         var taskA = OCKTask(id: "A", title: "A", carePlanUUID: nil, schedule: schedule)
-        taskA = try local.addTaskAndWait(taskA);
+        //taskA = try local.addTaskAndWait(taskA);
+        taskA.uuid = UUID()
+        taskA.createdDate = Date()
+        taskA.updatedDate = taskA.createdDate
         
-        let outcomeA = OCKOutcome(taskUUID:  taskA.uuid!, taskOccurrenceIndex: 0, values: [])
-        try local.addOutcomeAndWait(outcomeA)
+        var outcomeA = OCKOutcome(taskUUID:  taskA.uuid!, taskOccurrenceIndex: 0, values: [])
+        //try local.addOutcomeAndWait(outcomeA)
+        outcomeA.uuid = UUID()
+        outcomeA.createdDate = Date()
+        outcomeA.updatedDate = taskA.createdDate
+        
+        let rev = OCKRevisionRecord(entities: [.task(taskA), .outcome(outcomeA)], knowledgeVector: .init())
+        let jsonData = try! JSONEncoder().encode(rev)
+        let jsonString = String(data: jsonData, encoding: .utf8)!
+        print(jsonString)
 
-        try local.syncAndWait()
+        //try local.syncAndWait()
     }
 
     func testNonConflictingSyncAcrossStores() throws {
@@ -117,12 +129,14 @@ class IBMMongoRemoteTests: XCTestCase {
         try local.addOutcomeAndWait(outcomeB)
         
         XCTAssertNoThrow(try local.syncAndWait())
-        
+
         let localTasks = try local.fetchTasksAndWait()
         let localOutcomes = try local.fetchOutcomesAndWait()
         let remoteTasks = try remote.fetchTasksAndWait()
         let remoteOutcomes = try remote.fetchOutcomesAndWait()
 
+        XCTAssertNoThrow(try remote.syncAndWait())
+        
         XCTAssert(localTasks == remoteTasks)
         XCTAssert(localOutcomes == remoteOutcomes)
         XCTAssert(localTasks.count == 2)
@@ -302,73 +316,6 @@ class IBMMongoRemoteTests: XCTestCase {
         XCTAssert(Set(localTasks.map { $0.title }) == Set(["A", "B", "C"]))
         XCTAssert(localOutcomes == remoteOutcomes)
         XCTAssert(localOutcomes.count == 1)
-    }
-}
-
-class DummyEndpoint: OCKRemoteSynchronizable {
-    
-    var automaticallySynchronizes = true
-    var shouldSucceed = true
-    var delay: TimeInterval = 0.0
-    weak var delegate: OCKRemoteSynchronizableDelegate?
-    
-    private(set) var timesPullWasCalled = 0
-    private(set) var timesPushWasCalled = 0
-    private(set) var timesForcePushed = 0
-    
-    var conflictPolicy = OCKMergeConflictResolutionPolicy.keepRemote
-    var revision = OCKRevisionRecord(entities: [], knowledgeVector: .init())
-    
-    func pullRevisions(
-        since knowledgeVector: OCKRevisionRecord.KnowledgeVector,
-        mergeRevision: @escaping (OCKRevisionRecord, @escaping (Error?) -> Void) -> Void,
-        completion: @escaping (Error?) -> Void) {
-        
-        timesPullWasCalled += 1
-        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + delay) {
-            if !self.shouldSucceed {
-                completion(OCKStoreError.remoteSynchronizationFailed(reason: "Failed on purpose"))
-                return
-            }
-            mergeRevision(self.revision, completion)
-        }
-    }
-    
-    func pushRevisions(
-        deviceRevision: OCKRevisionRecord,
-        overwriteRemote: Bool,
-        completion: @escaping (Error?) -> Void) {
-        
-        timesPushWasCalled += 1
-        timesForcePushed += overwriteRemote ? 1 : 0
-        completion(nil)
-    }
-    
-    func chooseConflicResolutionPolicy(
-        _ conflict: OCKMergeConflictDescription,
-        completion: @escaping (OCKMergeConflictResolutionPolicy) -> Void) {
-        completion(conflictPolicy)
-    }
-    
-    func dummyRevision() -> OCKRevisionRecord {
-        let schedule = OCKSchedule.dailyAtTime(hour: 1, minutes: 42, start: Date(), end: nil, text: nil)
-        var task = OCKTask(id: "a", title: "A", carePlanUUID: nil, schedule: schedule)
-        task.uuid = UUID()
-        task.createdDate = Date()
-        task.updatedDate = task.createdDate
-        
-        var outcome = OCKOutcome(taskUUID: task.uuid!, taskOccurrenceIndex: 0, values: [])
-        outcome.uuid = UUID()
-        outcome.createdDate = Date()
-        outcome.updatedDate = outcome.createdDate
-        
-        let entities: [OCKEntity] = [
-            .task(task),
-            .outcome(outcome)
-        ]
-        
-        let revision = OCKRevisionRecord(entities: entities, knowledgeVector: .init())
-        return revision
     }
 }
 
