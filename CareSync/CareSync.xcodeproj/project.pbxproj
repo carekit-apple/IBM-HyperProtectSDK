@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,61 +13,13 @@
 		035EF90C24196927005E2943 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035EF90B24196927005E2943 /* Preview Assets.xcassets */; };
 		035EF90F24196927005E2943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 035EF90D24196927005E2943 /* LaunchScreen.storyboard */; };
 		035EF91F24196A53005E2943 /* CareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EF91E24196A53005E2943 /* CareViewController.swift */; };
-		03EEB926241980AD002FA74E /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F5C24197F4E00A4613F /* CareKit.framework */; };
-		03EEB927241980AD002FA74E /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F5C24197F4E00A4613F /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		03EEB928241980AD002FA74E /* CareKitStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6524197F5400A4613F /* CareKitStore.framework */; };
-		03EEB929241980AD002FA74E /* CareKitStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6524197F5400A4613F /* CareKitStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		03EEB92A241980AD002FA74E /* CareKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6E24197F5B00A4613F /* CareKitUI.framework */; };
-		03EEB92B241980AD002FA74E /* CareKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6E24197F5B00A4613F /* CareKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0390C52D245E224200FF49D7 /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0390C52C245E224200FF49D7 /* CareKitUI */; };
+		0390C52F245E224200FF49D7 /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0390C52E245E224200FF49D7 /* CareKit */; };
+		0390C531245E224200FF49D7 /* CareKitStore in Frameworks */ = {isa = PBXBuildFile; productRef = 0390C530245E224200FF49D7 /* CareKitStore */; };
 		03EEB936241985D2002FA74E /* SyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EEB935241985D2002FA74E /* SyncViewController.swift */; };
 		03FEA6F8244FB36000834C2C /* IBMMongoRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEA6F0244FB36000834C2C /* IBMMongoRemote.swift */; };
 		03FEA6F9244FB36000834C2C /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEA6F1244FB36000834C2C /* HTTPStatusCode.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		03732F5B24197F4E00A4613F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03732F5424197F4E00A4613F /* CareKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8605A5BA1C4F04EC00DD65FF;
-			remoteInfo = CareKit;
-		};
-		03732F5D24197F4E00A4613F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03732F5424197F4E00A4613F /* CareKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5196C7F9226F8F8F00F1C2A2;
-			remoteInfo = CareKitTests;
-		};
-		03732F6424197F5400A4613F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03732F5F24197F5400A4613F /* CareKitStore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E784B8F82232EED600736CA5;
-			remoteInfo = CareKitStore;
-		};
-		03732F6624197F5400A4613F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03732F5F24197F5400A4613F /* CareKitStore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E784B9012232EED600736CA5;
-			remoteInfo = CareKitStoreTests;
-		};
-		03732F6D24197F5B00A4613F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03732F6824197F5B00A4613F /* CareKitUI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5174225B224185290054E97C;
-			remoteInfo = CareKitUI;
-		};
-		03732F6F24197F5B00A4613F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03732F6824197F5B00A4613F /* CareKitUI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 512B012E22C2F82900ABCB1D;
-			remoteInfo = CareKitUITests;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		03EEB92C241980AD002FA74E /* Embed Frameworks */ = {
@@ -76,9 +28,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				03EEB929241980AD002FA74E /* CareKitStore.framework in Embed Frameworks */,
-				03EEB927241980AD002FA74E /* CareKit.framework in Embed Frameworks */,
-				03EEB92B241980AD002FA74E /* CareKitUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,9 +43,7 @@
 		035EF90E24196927005E2943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		035EF91024196927005E2943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		035EF91E24196A53005E2943 /* CareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareViewController.swift; sourceTree = "<group>"; };
-		03732F5424197F4E00A4613F /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = "CareKit-Private/CareKit/CareKit.xcodeproj"; sourceTree = "<group>"; };
-		03732F5F24197F5400A4613F /* CareKitStore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitStore.xcodeproj; path = "CareKit-Private/CareKitStore/CareKitStore.xcodeproj"; sourceTree = "<group>"; };
-		03732F6824197F5B00A4613F /* CareKitUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitUI.xcodeproj; path = "CareKit-Private/CareKitUI/CareKitUI.xcodeproj"; sourceTree = "<group>"; };
+		0390C52A245E221600FF49D7 /* CareKitHyperProtectSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CareKitHyperProtectSDK; path = ..; sourceTree = "<group>"; };
 		03EEB935241985D2002FA74E /* SyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncViewController.swift; sourceTree = "<group>"; };
 		03FEA6F0244FB36000834C2C /* IBMMongoRemote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBMMongoRemote.swift; sourceTree = "<group>"; };
 		03FEA6F1244FB36000834C2C /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
@@ -107,9 +54,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03EEB92A241980AD002FA74E /* CareKitUI.framework in Frameworks */,
-				03EEB928241980AD002FA74E /* CareKitStore.framework in Frameworks */,
-				03EEB926241980AD002FA74E /* CareKit.framework in Frameworks */,
+				0390C52F245E224200FF49D7 /* CareKit in Frameworks */,
+				0390C52D245E224200FF49D7 /* CareKitUI in Frameworks */,
+				0390C531245E224200FF49D7 /* CareKitStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,9 +66,7 @@
 		035EF8F624196924005E2943 = {
 			isa = PBXGroup;
 			children = (
-				03732F6824197F5B00A4613F /* CareKitUI.xcodeproj */,
-				03732F5F24197F5400A4613F /* CareKitStore.xcodeproj */,
-				03732F5424197F4E00A4613F /* CareKit.xcodeproj */,
+				0390C52A245E221600FF49D7 /* CareKitHyperProtectSDK */,
 				035EF90124196924005E2943 /* CareSync */,
 				035EF90024196924005E2943 /* Products */,
 				035EF92224196AEB005E2943 /* Frameworks */,
@@ -139,7 +84,6 @@
 		035EF90124196924005E2943 /* CareSync */ = {
 			isa = PBXGroup;
 			children = (
-				F30A8B46244FADFB00DF36D5 /* HTTPStatusCode.swift */,
 				03FEA6EF244FB36000834C2C /* CareKitHyperProtectSDK */,
 				035EF90224196924005E2943 /* AppDelegate.swift */,
 				035EF90424196924005E2943 /* SceneDelegate.swift */,
@@ -166,33 +110,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		03732F5524197F4E00A4613F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				03732F5C24197F4E00A4613F /* CareKit.framework */,
-				03732F5E24197F4E00A4613F /* CareKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		03732F6024197F5400A4613F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				03732F6524197F5400A4613F /* CareKitStore.framework */,
-				03732F6724197F5400A4613F /* CareKitStoreTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		03732F6924197F5B00A4613F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				03732F6E24197F5B00A4613F /* CareKitUI.framework */,
-				03732F7024197F5B00A4613F /* CareKitUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		03FEA6EF244FB36000834C2C /* CareKitHyperProtectSDK */ = {
@@ -223,6 +140,9 @@
 			);
 			name = CareSync;
 			packageProductDependencies = (
+				0390C52C245E224200FF49D7 /* CareKitUI */,
+				0390C52E245E224200FF49D7 /* CareKit */,
+				0390C530245E224200FF49D7 /* CareKitStore */,
 			);
 			productName = CareSync;
 			productReference = 035EF8FF24196924005E2943 /* CareSync.app */;
@@ -253,74 +173,16 @@
 			);
 			mainGroup = 035EF8F624196924005E2943;
 			packageReferences = (
+				0390C52B245E224200FF49D7 /* XCRemoteSwiftPackageReference "CareKit-Private" */,
 			);
 			productRefGroup = 035EF90024196924005E2943 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 03732F5524197F4E00A4613F /* Products */;
-					ProjectRef = 03732F5424197F4E00A4613F /* CareKit.xcodeproj */;
-				},
-				{
-					ProductGroup = 03732F6024197F5400A4613F /* Products */;
-					ProjectRef = 03732F5F24197F5400A4613F /* CareKitStore.xcodeproj */;
-				},
-				{
-					ProductGroup = 03732F6924197F5B00A4613F /* Products */;
-					ProjectRef = 03732F6824197F5B00A4613F /* CareKitUI.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				035EF8FE24196924005E2943 /* CareSync */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		03732F5C24197F4E00A4613F /* CareKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CareKit.framework;
-			remoteRef = 03732F5B24197F4E00A4613F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		03732F5E24197F4E00A4613F /* CareKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CareKitTests.xctest;
-			remoteRef = 03732F5D24197F4E00A4613F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		03732F6524197F5400A4613F /* CareKitStore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CareKitStore.framework;
-			remoteRef = 03732F6424197F5400A4613F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		03732F6724197F5400A4613F /* CareKitStoreTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CareKitStoreTests.xctest;
-			remoteRef = 03732F6624197F5400A4613F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		03732F6E24197F5B00A4613F /* CareKitUI.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CareKitUI.framework;
-			remoteRef = 03732F6D24197F5B00A4613F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		03732F7024197F5B00A4613F /* CareKitUITests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CareKitUITests.xctest;
-			remoteRef = 03732F6F24197F5B00A4613F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		035EF8FD24196924005E2943 /* Resources */ = {
@@ -340,7 +202,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F30A8B4D244FADFB00DF36D5 /* HTTPStatusCode.swift in Sources */,
 				035EF90324196924005E2943 /* AppDelegate.swift in Sources */,
 				03FEA6F8244FB36000834C2C /* IBMMongoRemote.swift in Sources */,
 				035EF91F24196A53005E2943 /* CareViewController.swift in Sources */,
@@ -538,6 +399,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0390C52B245E224200FF49D7 /* XCRemoteSwiftPackageReference "CareKit-Private" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:carekit-apple/CareKit-Private.git";
+			requirement = {
+				branch = "ibm-hyperprotect-sdk";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0390C52C245E224200FF49D7 /* CareKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0390C52B245E224200FF49D7 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
+			productName = CareKitUI;
+		};
+		0390C52E245E224200FF49D7 /* CareKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0390C52B245E224200FF49D7 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
+			productName = CareKit;
+		};
+		0390C530245E224200FF49D7 /* CareKitStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0390C52B245E224200FF49D7 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
+			productName = CareKitStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 035EF8F724196924005E2943 /* Project object */;
 }
