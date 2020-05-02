@@ -116,17 +116,12 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - data: body of call (type OCKxxx)
     ///   - method: POST/PUT/PATCH method
     ///   - completion: HTTP Status Code or error
-<<<<<<< HEAD
-    private func pushToBackend<F: Fetchable>(with data: F, using method: Method, completion: @escaping (Result<HTTPStatusCode, Error>) -> Void) {
-        debugPrint("PUT CALLED")
-=======
     private func pushToBackend<F: Fetchable>(
         with data: F,
         using method: Method,
         completion: @escaping (Result<HTTPStatusCode, Error>) -> Void) {
 
         //debugPrint("PUT CALLED")
->>>>>>> 0834db1d30e8668628741dd8968854ecbbb6e428
         //Thread.callStackSymbols.forEach{print($0)}
         assert(method != .GET, "Cannot push using the GET method")
         
