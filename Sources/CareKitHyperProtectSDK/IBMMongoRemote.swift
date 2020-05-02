@@ -54,7 +54,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     
     // MARK: OCKRemoteSynchronizable
     
-    public weak var delegate: OCKRemoteSynchronizableDelegate?
+    public weak var delegate: OCKRemoteSynchronizationDelegate?
     
     public var automaticallySynchronizes: Bool = true
     
@@ -87,11 +87,11 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
             }
         }
     }
-    
-    public func chooseConflicResolutionPolicy(
+
+    public func chooseConflictResolutionPolicy(
         _ conflict: OCKMergeConflictDescription,
         completion: @escaping (OCKMergeConflictResolutionPolicy) -> Void) {
-        
+
         completion(.keepDevice)
     }
     
