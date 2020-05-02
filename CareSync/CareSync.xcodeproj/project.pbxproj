@@ -13,7 +13,6 @@
 		035EF90C24196927005E2943 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035EF90B24196927005E2943 /* Preview Assets.xcassets */; };
 		035EF90F24196927005E2943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 035EF90D24196927005E2943 /* LaunchScreen.storyboard */; };
 		035EF91F24196A53005E2943 /* CareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EF91E24196A53005E2943 /* CareViewController.swift */; };
-		03D488502419A4850006A92C /* IBMMongoRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4884F2419A4850006A92C /* IBMMongoRemote.swift */; };
 		03EEB926241980AD002FA74E /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F5C24197F4E00A4613F /* CareKit.framework */; };
 		03EEB927241980AD002FA74E /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F5C24197F4E00A4613F /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03EEB928241980AD002FA74E /* CareKitStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6524197F5400A4613F /* CareKitStore.framework */; };
@@ -21,7 +20,8 @@
 		03EEB92A241980AD002FA74E /* CareKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6E24197F5B00A4613F /* CareKitUI.framework */; };
 		03EEB92B241980AD002FA74E /* CareKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03732F6E24197F5B00A4613F /* CareKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03EEB936241985D2002FA74E /* SyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EEB935241985D2002FA74E /* SyncViewController.swift */; };
-		F30A8B4D244FADFB00DF36D5 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A8B46244FADFB00DF36D5 /* HTTPStatusCode.swift */; };
+		03FEA6F8244FB36000834C2C /* IBMMongoRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEA6F0244FB36000834C2C /* IBMMongoRemote.swift */; };
+		03FEA6F9244FB36000834C2C /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEA6F1244FB36000834C2C /* HTTPStatusCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,9 +97,13 @@
 		03732F5424197F4E00A4613F /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = "CareKit-Private/CareKit/CareKit.xcodeproj"; sourceTree = "<group>"; };
 		03732F5F24197F5400A4613F /* CareKitStore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitStore.xcodeproj; path = "CareKit-Private/CareKitStore/CareKitStore.xcodeproj"; sourceTree = "<group>"; };
 		03732F6824197F5B00A4613F /* CareKitUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitUI.xcodeproj; path = "CareKit-Private/CareKitUI/CareKitUI.xcodeproj"; sourceTree = "<group>"; };
-		03D4884F2419A4850006A92C /* IBMMongoRemote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBMMongoRemote.swift; path = ../../Sources/CareKitHyperProtectSDK/IBMMongoRemote.swift; sourceTree = "<group>"; };
 		03EEB935241985D2002FA74E /* SyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		F30A8B46244FADFB00DF36D5 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPStatusCode.swift; path = ../../Sources/CareKitHyperProtectSDK/HTTPStatusCode.swift; sourceTree = "<group>"; };
+=======
+		03FEA6F0244FB36000834C2C /* IBMMongoRemote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBMMongoRemote.swift; sourceTree = "<group>"; };
+		03FEA6F1244FB36000834C2C /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+>>>>>>> 0834db1d30e8668628741dd8968854ecbbb6e428
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,12 +143,15 @@
 		035EF90124196924005E2943 /* CareSync */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				F30A8B46244FADFB00DF36D5 /* HTTPStatusCode.swift */,
+=======
+				03FEA6EF244FB36000834C2C /* CareKitHyperProtectSDK */,
+>>>>>>> 0834db1d30e8668628741dd8968854ecbbb6e428
 				035EF90224196924005E2943 /* AppDelegate.swift */,
 				035EF90424196924005E2943 /* SceneDelegate.swift */,
 				035EF91E24196A53005E2943 /* CareViewController.swift */,
 				03EEB935241985D2002FA74E /* SyncViewController.swift */,
-				03D4884F2419A4850006A92C /* IBMMongoRemote.swift */,
 				035EF90824196927005E2943 /* Assets.xcassets */,
 				035EF90D24196927005E2943 /* LaunchScreen.storyboard */,
 				035EF91024196927005E2943 /* Info.plist */,
@@ -195,6 +202,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		03FEA6EF244FB36000834C2C /* CareKitHyperProtectSDK */ = {
+			isa = PBXGroup;
+			children = (
+				03FEA6F0244FB36000834C2C /* IBMMongoRemote.swift */,
+				03FEA6F1244FB36000834C2C /* HTTPStatusCode.swift */,
+			);
+			name = CareKitHyperProtectSDK;
+			path = ../../Sources/CareKitHyperProtectSDK;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,7 +223,6 @@
 				035EF8FC24196924005E2943 /* Frameworks */,
 				035EF8FD24196924005E2943 /* Resources */,
 				03EEB92C241980AD002FA74E /* Embed Frameworks */,
-				03584EA62433B6B900F3975B /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -326,27 +342,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		03584EA62433B6B900F3975B /* Run SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftLint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		035EF8FB24196924005E2943 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -354,10 +349,11 @@
 			files = (
 				F30A8B4D244FADFB00DF36D5 /* HTTPStatusCode.swift in Sources */,
 				035EF90324196924005E2943 /* AppDelegate.swift in Sources */,
+				03FEA6F8244FB36000834C2C /* IBMMongoRemote.swift in Sources */,
 				035EF91F24196A53005E2943 /* CareViewController.swift in Sources */,
 				035EF90524196924005E2943 /* SceneDelegate.swift in Sources */,
 				03EEB936241985D2002FA74E /* SyncViewController.swift in Sources */,
-				03D488502419A4850006A92C /* IBMMongoRemote.swift in Sources */,
+				03FEA6F9244FB36000834C2C /* HTTPStatusCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

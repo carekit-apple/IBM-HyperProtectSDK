@@ -1,32 +1,32 @@
 /*
- Copyright (c) 2020, IBM, Apple Inc. All rights reserved.
- 
- Redistribution and use in source and binary forms, with or without modification,
- are permitted provided that the following conditions are met:
- 
- 1.  Redistributions of source code must retain the above copyright notice, this
- list of conditions and the following disclaimer.
- 
- 2.  Redistributions in binary form must reproduce the above copyright notice,
- this list of conditions and the following disclaimer in the documentation and/or
- other materials provided with the distribution.
- 
- 3. Neither the name of the copyright holder(s) nor the names of any contributors
- may be used to endorse or promote products derived from this software without
- specific prior written permission. No license is granted to the trademarks of
- the copyright holders even if such marks are included in this software.
- 
- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
- FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
- OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+Copyright (c) 2019, International Business Machines. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+1.  Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+
+2.  Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation and/or
+other materials provided with the distribution.
+
+3. Neither the name of the copyright holder(s) nor the names of any contributors
+may be used to endorse or promote products derived from this software without
+specific prior written permission. No license is granted to the trademarks of
+the copyright holders even if such marks are included in this software.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
 
 import UIKit
 import CareKitStore
@@ -48,14 +48,17 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///
     /// - Parameters:
     ///   - id: unique id to identify patient. This will typically be OCKPatient.id
+    ///   - conflictPolicy: determines how conflict resolutions will be resolved.
     ///   - apiLocation: uri format (https://ip:port)
     ///   - apiTimeOut: timeout
     ///   - appleId: Apple ID  used for authentication and authorization
-    init(id: String,
-         conflictPolicy: OCKMergeConflictResolutionPolicy = OCKMergeConflictResolutionPolicy.keepRemote,
-         apiLocation: String = "http://localhost:3000/",
-         apiTimeOut: Int = 2,
-         appleId: String){
+    init(
+        id: String,
+        conflictPolicy: OCKMergeConflictResolutionPolicy = OCKMergeConflictResolutionPolicy.keepRemote,
+        apiLocation:String = "http://localhost:3000/",
+        apiTimeOut:Int = 2,
+        appleId: String) {
+
         self.id = id
         self.url = apiLocation
         self.timeout = apiTimeOut
@@ -113,8 +116,17 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - data: body of call (type OCKxxx)
     ///   - method: POST/PUT/PATCH method
     ///   - completion: HTTP Status Code or error
+<<<<<<< HEAD
     private func pushToBackend<F: Fetchable>(with data: F, using method: Method, completion: @escaping (Result<HTTPStatusCode, Error>) -> Void) {
         debugPrint("PUT CALLED")
+=======
+    private func pushToBackend<F: Fetchable>(
+        with data: F,
+        using method: Method,
+        completion: @escaping (Result<HTTPStatusCode, Error>) -> Void) {
+
+        //debugPrint("PUT CALLED")
+>>>>>>> 0834db1d30e8668628741dd8968854ecbbb6e428
         //Thread.callStackSymbols.forEach{print($0)}
         assert(method != .GET, "Cannot push using the GET method")
         
@@ -160,8 +172,12 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - fetchable: expected type of data from GET request
     ///   - knowledgeVector: logical vector clock
     ///   - completion: object of type OCKxxx or Error
-    private func pullFromBackend<F: Fetchable>(_ fetchable: F.Type, since knowledgeVector : OCKRevisionRecord.KnowledgeVector? = nil, completion: @escaping (Result<F, Error>) -> Void) {
-        debugPrint("GET CALLED")
+    private func pullFromBackend<F: Fetchable>(
+        _ fetchable: F.Type,
+        since knowledgeVector: OCKRevisionRecord.KnowledgeVector? = nil,
+        completion: @escaping (Result<F, Error>) -> Void) {
+
+        //debugPrint("GET CALLED")
         //Thread.callStackSymbols.forEach{print($0)}
         let urlString = url + F.endpoint
         var requestURL = URL(string: urlString)

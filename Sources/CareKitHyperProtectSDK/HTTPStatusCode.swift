@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2020, IBM, Apple Inc. All rights reserved.
+Copyright (c) 2019, International Business Machines. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -30,9 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
 
-///// This is a list of Hypertext Transfer Protocol (HTTP) response status codes.
-///// It includes codes from IETF internet standards, other IETF RFCs, other specifications, and some additional commonly used codes.
-///// The first digit of the status code specifies one of five classes of response; an HTTP client must recognise these five classes at a minimum.
+/// This is a list of Hypertext Transfer Protocol (HTTP) response status codes.
+/// It includes codes from IETF internet standards, other IETF RFCs, other specifications, and some additional commonly used codes.
+/// The first digit of the status code specifies one of five classes of response; an HTTP client must recognize these five classes at a minimum.
 enum HTTPStatusCode: Int, Error {
 
     /// The response class representation of status codes, these get grouped by their first digit.

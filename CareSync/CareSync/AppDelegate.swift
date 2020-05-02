@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2019, Apple Inc. All rights reserved.
+Copyright (c) 2020, International Business Machines. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -32,8 +32,6 @@ import CareKit
 import CareKitStore
 import Contacts
 import UIKit
-import HealthKit
-import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
