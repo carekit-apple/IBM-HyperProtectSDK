@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -21,6 +21,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		F3926426245E10F4003EA100 /* CareKitStore in Frameworks */ = {isa = PBXBuildFile; productRef = F3926425245E10F4003EA100 /* CareKitStore */; };
+		F3926428245E10F4003EA100 /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = F3926427245E10F4003EA100 /* CareKitUI */; };
+		F392642A245E10F4003EA100 /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3926429245E10F4003EA100 /* CareKit */; };
 		OBJ_130 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* HTTPStatusCode.swift */; };
 		OBJ_131 /* IBMMongoRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* IBMMongoRemote.swift */; };
 		OBJ_133 /* CareKitStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CareKit::CareKitStore::Product" /* CareKitStore.framework */; };
@@ -253,7 +256,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				F3926426245E10F4003EA100 /* CareKitStore in Frameworks */,
 				OBJ_133 /* CareKitStore.framework in Frameworks */,
+				F392642A245E10F4003EA100 /* CareKit in Frameworks */,
+				F3926428245E10F4003EA100 /* CareKitUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,7 +432,7 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -438,7 +444,6 @@
 				OBJ_123 /* LICENSE */,
 				OBJ_124 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_50 /* CarePlans */ = {
@@ -607,6 +612,11 @@
 				OBJ_134 /* PBXTargetDependency */,
 			);
 			name = CareKitHyperProtectSDK;
+			packageProductDependencies = (
+				F3926425245E10F4003EA100 /* CareKitStore */,
+				F3926427245E10F4003EA100 /* CareKitUI */,
+				F3926429245E10F4003EA100 /* CareKit */,
+			);
 			productName = CareKitHyperProtectSDK;
 			productReference = "CareKitHyperProtectSDK::CareKitHyperProtectSDK::Product" /* CareKitHyperProtectSDK.framework */;
 			productType = "com.apple.product-type.framework";
@@ -659,7 +669,10 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
+			packageReferences = (
+				F3926424245E10F4003EA100 /* XCRemoteSwiftPackageReference "CareKit-Private" */,
+			);
 			productRefGroup = OBJ_118 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -838,7 +851,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CareKitHyperProtectSDK.xcodeproj/CareKitHyperProtectSDK_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -866,7 +882,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CareKitHyperProtectSDK.xcodeproj/CareKitHyperProtectSDK_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -925,7 +944,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CareKitHyperProtectSDK.xcodeproj/CareKitHyperProtectSDKTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -950,7 +973,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CareKitHyperProtectSDK.xcodeproj/CareKitHyperProtectSDKTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -992,7 +1019,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CareKitHyperProtectSDK.xcodeproj/CareKitStore_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -1020,7 +1050,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CareKitHyperProtectSDK.xcodeproj/CareKitStore_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -1083,7 +1116,8 @@
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				USE_HEADERMAP = NO;
 			};
 			name = Release;
@@ -1155,6 +1189,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3926424245E10F4003EA100 /* XCRemoteSwiftPackageReference "CareKit-Private" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/carekit-apple/CareKit-Private.git";
+			requirement = {
+				branch = "ibm-hyperprotect-sdk";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3926425245E10F4003EA100 /* CareKitStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3926424245E10F4003EA100 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
+			productName = CareKitStore;
+		};
+		F3926427245E10F4003EA100 /* CareKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3926424245E10F4003EA100 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
+			productName = CareKitUI;
+		};
+		F3926429245E10F4003EA100 /* CareKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3926424245E10F4003EA100 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
+			productName = CareKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = OBJ_1 /* Project object */;
 }
