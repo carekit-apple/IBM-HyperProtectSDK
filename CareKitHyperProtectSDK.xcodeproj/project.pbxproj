@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		"CareKitHyperProtectSDK::CareKitHyperProtectSDKPackageTests::ProductTarget" /* CareKitHyperProtectSDKPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_143 /* Build configuration list for PBXAggregateTarget "CareKitHyperProtectSDKPackageTests" */;
+			buildConfigurationList = OBJ_146 /* Build configuration list for PBXAggregateTarget "CareKitHyperProtectSDKPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_146 /* PBXTargetDependency */,
+				OBJ_149 /* PBXTargetDependency */,
 			);
 			name = CareKitHyperProtectSDKPackageTests;
 			productName = CareKitHyperProtectSDKPackageTests;
@@ -21,128 +21,130 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		F3926426245E10F4003EA100 /* CareKitStore in Frameworks */ = {isa = PBXBuildFile; productRef = F3926425245E10F4003EA100 /* CareKitStore */; };
-		F3926428245E10F4003EA100 /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = F3926427245E10F4003EA100 /* CareKitUI */; };
-		F392642A245E10F4003EA100 /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3926429245E10F4003EA100 /* CareKit */; };
-		OBJ_130 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* HTTPStatusCode.swift */; };
-		OBJ_131 /* IBMMongoRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* IBMMongoRemote.swift */; };
-		OBJ_133 /* CareKitStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CareKit::CareKitStore::Product" /* CareKitStore.framework */; };
-		OBJ_141 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_152 /* IBMMongoRemoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* IBMMongoRemoteTests.swift */; };
-		OBJ_153 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* XCTestManifests.swift */; };
-		OBJ_155 /* CareKitHyperProtectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CareKitHyperProtectSDK::CareKitHyperProtectSDK::Product" /* CareKitHyperProtectSDK.framework */; };
-		OBJ_156 /* CareKitStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CareKit::CareKitStore::Product" /* CareKitStore.framework */; };
-		OBJ_164 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_117 /* Package.swift */; };
-		OBJ_169 /* OCKCDCarePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* OCKCDCarePlan.swift */; };
-		OBJ_170 /* OCKCDContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* OCKCDContact.swift */; };
-		OBJ_171 /* OCKCDHealthKitLinkage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* OCKCDHealthKitLinkage.swift */; };
-		OBJ_172 /* OCKCDNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* OCKCDNote.swift */; };
-		OBJ_173 /* OCKCDObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* OCKCDObject.swift */; };
-		OBJ_174 /* OCKCDOutcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* OCKCDOutcome.swift */; };
-		OBJ_175 /* OCKCDOutcomeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* OCKCDOutcomeValue.swift */; };
-		OBJ_176 /* OCKCDPatient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* OCKCDPatient.swift */; };
-		OBJ_177 /* OCKCDPersonName.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* OCKCDPersonName.swift */; };
-		OBJ_178 /* OCKCDPostalAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* OCKCDPostalAddress.swift */; };
-		OBJ_179 /* OCKCDScheduleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* OCKCDScheduleElement.swift */; };
-		OBJ_180 /* OCKCDTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* OCKCDTask.swift */; };
-		OBJ_181 /* OCKCDVersionedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* OCKCDVersionedObject.swift */; };
-		OBJ_182 /* OCKManagedObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* OCKManagedObjectModel.swift */; };
-		OBJ_183 /* OCKStore+CarePlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* OCKStore+CarePlans.swift */; };
-		OBJ_184 /* OCKStore+Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* OCKStore+Contacts.swift */; };
-		OBJ_185 /* OCKStore+Outcomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* OCKStore+Outcomes.swift */; };
-		OBJ_186 /* OCKStore+Patients.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* OCKStore+Patients.swift */; };
-		OBJ_187 /* OCKStore+Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* OCKStore+Tasks.swift */; };
-		OBJ_188 /* OCKStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* OCKStore.swift */; };
-		OBJ_189 /* OCKRemoteSynchronizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* OCKRemoteSynchronizable.swift */; };
-		OBJ_190 /* OCKRevisionRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* OCKRevisionRecord.swift */; };
-		OBJ_191 /* OCKStore+Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* OCKStore+Sync.swift */; };
-		OBJ_192 /* OCKAdherenceAggregator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* OCKAdherenceAggregator.swift */; };
-		OBJ_193 /* OCKEventAggregator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* OCKEventAggregator.swift */; };
-		OBJ_194 /* OCKResultClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* OCKResultClosure.swift */; };
-		OBJ_195 /* OCKStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* OCKStoreError.swift */; };
-		OBJ_196 /* OCKUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* OCKUtilities.swift */; };
-		OBJ_197 /* OCKAnyCarePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* OCKAnyCarePlan.swift */; };
-		OBJ_198 /* OCKAnyCarePlanStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* OCKAnyCarePlanStore.swift */; };
-		OBJ_199 /* OCKCarePlanStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* OCKCarePlanStore.swift */; };
-		OBJ_200 /* OCKCarePlanStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* OCKCarePlanStoreDelegate.swift */; };
-		OBJ_201 /* OCKAnyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* OCKAnyContact.swift */; };
-		OBJ_202 /* OCKAnyContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* OCKAnyContactStore.swift */; };
-		OBJ_203 /* OCKContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* OCKContactStore.swift */; };
-		OBJ_204 /* OCKContactStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* OCKContactStoreDelegate.swift */; };
-		OBJ_205 /* OCKCoreDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* OCKCoreDataStoreProtocol.swift */; };
-		OBJ_206 /* OCKCoreDataTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* OCKCoreDataTaskStore.swift */; };
-		OBJ_207 /* OCKAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* OCKAnyEvent.swift */; };
-		OBJ_208 /* OCKAnyEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* OCKAnyEventStore.swift */; };
-		OBJ_209 /* OCKEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* OCKEventStore.swift */; };
-		OBJ_210 /* OCKObjectCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* OCKObjectCompatible.swift */; };
-		OBJ_211 /* OCKStoreProtocol+Synchronous.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* OCKStoreProtocol+Synchronous.swift */; };
-		OBJ_212 /* OCKStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* OCKStoreProtocol.swift */; };
-		OBJ_213 /* OCKAnyOutcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* OCKAnyOutcome.swift */; };
-		OBJ_214 /* OCKAnyOutcomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* OCKAnyOutcomeStore.swift */; };
-		OBJ_215 /* OCKOutcomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* OCKOutcomeStore.swift */; };
-		OBJ_216 /* OCKOutcomeStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* OCKOutcomeStoreDelegate.swift */; };
-		OBJ_217 /* OCKAnyPatient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* OCKAnyPatient.swift */; };
-		OBJ_218 /* OCKAnyPatientStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* OCKAnyPatientStore.swift */; };
-		OBJ_219 /* OCKPatientStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* OCKPatientStore.swift */; };
-		OBJ_220 /* OCKPatientStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* OCKPatientStoreDelegate.swift */; };
-		OBJ_221 /* OCKAnyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* OCKAnyTask.swift */; };
-		OBJ_222 /* OCKAnyTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* OCKAnyTaskStore.swift */; };
-		OBJ_223 /* OCKAnyVersionableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* OCKAnyVersionableTask.swift */; };
-		OBJ_224 /* OCKTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* OCKTaskStore.swift */; };
-		OBJ_225 /* OCKTaskStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* OCKTaskStoreDelegate.swift */; };
-		OBJ_226 /* OCKAdherence.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* OCKAdherence.swift */; };
-		OBJ_227 /* OCKBiologicalSex.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_88 /* OCKBiologicalSex.swift */; };
-		OBJ_228 /* OCKCarePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* OCKCarePlan.swift */; };
-		OBJ_229 /* OCKContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* OCKContact.swift */; };
-		OBJ_230 /* OCKEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* OCKEntity.swift */; };
-		OBJ_231 /* OCKEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* OCKEvent.swift */; };
-		OBJ_232 /* OCKHealthKitLinkage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* OCKHealthKitLinkage.swift */; };
-		OBJ_233 /* OCKLabeledValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* OCKLabeledValue.swift */; };
-		OBJ_234 /* OCKNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* OCKNote.swift */; };
-		OBJ_235 /* OCKOutcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* OCKOutcome.swift */; };
-		OBJ_236 /* OCKOutcomeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* OCKOutcomeValue.swift */; };
-		OBJ_237 /* OCKPatient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_98 /* OCKPatient.swift */; };
-		OBJ_238 /* OCKPostalAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* OCKPostalAddress.swift */; };
-		OBJ_239 /* OCKSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* OCKSchedule.swift */; };
-		OBJ_240 /* OCKScheduleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_101 /* OCKScheduleElement.swift */; };
-		OBJ_241 /* OCKScheduleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_102 /* OCKScheduleEvent.swift */; };
-		OBJ_242 /* OCKSemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* OCKSemanticVersion.swift */; };
-		OBJ_243 /* OCKStoreConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* OCKStoreConfiguration.swift */; };
-		OBJ_244 /* OCKTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* OCKTask.swift */; };
-		OBJ_245 /* OCKAdherenceQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* OCKAdherenceQuery.swift */; };
-		OBJ_246 /* OCKCarePlanQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* OCKCarePlanQuery.swift */; };
-		OBJ_247 /* OCKContactQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* OCKContactQuery.swift */; };
-		OBJ_248 /* OCKEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* OCKEntityQuery.swift */; };
-		OBJ_249 /* OCKEventQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* OCKEventQuery.swift */; };
-		OBJ_250 /* OCKInsightQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* OCKInsightQuery.swift */; };
-		OBJ_251 /* OCKOutcomeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_113 /* OCKOutcomeQuery.swift */; };
-		OBJ_252 /* OCKPatientQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_114 /* OCKPatientQuery.swift */; };
-		OBJ_253 /* OCKTaskQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_115 /* OCKTaskQuery.swift */; };
+		F30B1064245E3835002C1834 /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = F30B1063245E3835002C1834 /* CareKitUI */; };
+		F30B1066245E3835002C1834 /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = F30B1065245E3835002C1834 /* CareKit */; };
+		F30B1068245E3835002C1834 /* CareKitStore in Frameworks */ = {isa = PBXBuildFile; productRef = F30B1067245E3835002C1834 /* CareKitStore */; };
+		OBJ_133 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* HTTPStatusCode.swift */; };
+		OBJ_134 /* IBMMongoRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* IBMMongoRemote.swift */; };
+		OBJ_136 /* CareKitStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CareKit::CareKitStore::Product" /* CareKitStore.framework */; };
+		OBJ_144 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_155 /* IBMMongoRemoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* IBMMongoRemoteTests.swift */; };
+		OBJ_156 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* XCTestManifests.swift */; };
+		OBJ_158 /* CareKitHyperProtectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CareKitHyperProtectSDK::CareKitHyperProtectSDK::Product" /* CareKitHyperProtectSDK.framework */; };
+		OBJ_159 /* CareKitStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CareKit::CareKitStore::Product" /* CareKitStore.framework */; };
+		OBJ_167 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_119 /* Package.swift */; };
+		OBJ_172 /* OCKCDCarePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* OCKCDCarePlan.swift */; };
+		OBJ_173 /* OCKCDClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* OCKCDClock.swift */; };
+		OBJ_174 /* OCKCDContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* OCKCDContact.swift */; };
+		OBJ_175 /* OCKCDHealthKitLinkage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* OCKCDHealthKitLinkage.swift */; };
+		OBJ_176 /* OCKCDNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* OCKCDNote.swift */; };
+		OBJ_177 /* OCKCDObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* OCKCDObject.swift */; };
+		OBJ_178 /* OCKCDOutcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* OCKCDOutcome.swift */; };
+		OBJ_179 /* OCKCDOutcomeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* OCKCDOutcomeValue.swift */; };
+		OBJ_180 /* OCKCDPatient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* OCKCDPatient.swift */; };
+		OBJ_181 /* OCKCDPersonName.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* OCKCDPersonName.swift */; };
+		OBJ_182 /* OCKCDPostalAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* OCKCDPostalAddress.swift */; };
+		OBJ_183 /* OCKCDScheduleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* OCKCDScheduleElement.swift */; };
+		OBJ_184 /* OCKCDTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* OCKCDTask.swift */; };
+		OBJ_185 /* OCKCDVersionedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* OCKCDVersionedObject.swift */; };
+		OBJ_186 /* OCKManagedObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* OCKManagedObjectModel.swift */; };
+		OBJ_187 /* OCKStore+CarePlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* OCKStore+CarePlans.swift */; };
+		OBJ_188 /* OCKStore+Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* OCKStore+Contacts.swift */; };
+		OBJ_189 /* OCKStore+Outcomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* OCKStore+Outcomes.swift */; };
+		OBJ_190 /* OCKStore+Patients.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* OCKStore+Patients.swift */; };
+		OBJ_191 /* OCKStore+Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* OCKStore+Tasks.swift */; };
+		OBJ_192 /* OCKStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* OCKStore.swift */; };
+		OBJ_193 /* OCKPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* OCKPeer.swift */; };
+		OBJ_194 /* OCKRemoteSynchronizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* OCKRemoteSynchronizable.swift */; };
+		OBJ_195 /* OCKRevisionRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* OCKRevisionRecord.swift */; };
+		OBJ_196 /* OCKStore+Synchronization.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* OCKStore+Synchronization.swift */; };
+		OBJ_197 /* OCKAdherenceAggregator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* OCKAdherenceAggregator.swift */; };
+		OBJ_198 /* OCKEventAggregator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* OCKEventAggregator.swift */; };
+		OBJ_199 /* OCKResultClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* OCKResultClosure.swift */; };
+		OBJ_200 /* OCKStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* OCKStoreError.swift */; };
+		OBJ_201 /* OCKUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* OCKUtilities.swift */; };
+		OBJ_202 /* OCKAnyCarePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* OCKAnyCarePlan.swift */; };
+		OBJ_203 /* OCKAnyCarePlanStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* OCKAnyCarePlanStore.swift */; };
+		OBJ_204 /* OCKCarePlanStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* OCKCarePlanStore.swift */; };
+		OBJ_205 /* OCKCarePlanStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* OCKCarePlanStoreDelegate.swift */; };
+		OBJ_206 /* OCKAnyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* OCKAnyContact.swift */; };
+		OBJ_207 /* OCKAnyContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* OCKAnyContactStore.swift */; };
+		OBJ_208 /* OCKContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* OCKContactStore.swift */; };
+		OBJ_209 /* OCKContactStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* OCKContactStoreDelegate.swift */; };
+		OBJ_210 /* OCKCoreDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* OCKCoreDataStoreProtocol.swift */; };
+		OBJ_211 /* OCKCoreDataTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* OCKCoreDataTaskStore.swift */; };
+		OBJ_212 /* OCKAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* OCKAnyEvent.swift */; };
+		OBJ_213 /* OCKAnyEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* OCKAnyEventStore.swift */; };
+		OBJ_214 /* OCKEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* OCKEventStore.swift */; };
+		OBJ_215 /* OCKObjectCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* OCKObjectCompatible.swift */; };
+		OBJ_216 /* OCKStoreProtocol+Synchronous.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* OCKStoreProtocol+Synchronous.swift */; };
+		OBJ_217 /* OCKStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* OCKStoreProtocol.swift */; };
+		OBJ_218 /* OCKAnyOutcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* OCKAnyOutcome.swift */; };
+		OBJ_219 /* OCKAnyOutcomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* OCKAnyOutcomeStore.swift */; };
+		OBJ_220 /* OCKOutcomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* OCKOutcomeStore.swift */; };
+		OBJ_221 /* OCKOutcomeStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* OCKOutcomeStoreDelegate.swift */; };
+		OBJ_222 /* OCKAnyPatient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* OCKAnyPatient.swift */; };
+		OBJ_223 /* OCKAnyPatientStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* OCKAnyPatientStore.swift */; };
+		OBJ_224 /* OCKPatientStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* OCKPatientStore.swift */; };
+		OBJ_225 /* OCKPatientStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* OCKPatientStoreDelegate.swift */; };
+		OBJ_226 /* OCKAnyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* OCKAnyTask.swift */; };
+		OBJ_227 /* OCKAnyTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* OCKAnyTaskStore.swift */; };
+		OBJ_228 /* OCKAnyVersionableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* OCKAnyVersionableTask.swift */; };
+		OBJ_229 /* OCKTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* OCKTaskStore.swift */; };
+		OBJ_230 /* OCKTaskStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* OCKTaskStoreDelegate.swift */; };
+		OBJ_231 /* OCKAdherence.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* OCKAdherence.swift */; };
+		OBJ_232 /* OCKBiologicalSex.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* OCKBiologicalSex.swift */; };
+		OBJ_233 /* OCKCarePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* OCKCarePlan.swift */; };
+		OBJ_234 /* OCKContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* OCKContact.swift */; };
+		OBJ_235 /* OCKEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* OCKEntity.swift */; };
+		OBJ_236 /* OCKEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* OCKEvent.swift */; };
+		OBJ_237 /* OCKHealthKitLinkage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* OCKHealthKitLinkage.swift */; };
+		OBJ_238 /* OCKLabeledValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* OCKLabeledValue.swift */; };
+		OBJ_239 /* OCKNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* OCKNote.swift */; };
+		OBJ_240 /* OCKOutcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_98 /* OCKOutcome.swift */; };
+		OBJ_241 /* OCKOutcomeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* OCKOutcomeValue.swift */; };
+		OBJ_242 /* OCKPatient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* OCKPatient.swift */; };
+		OBJ_243 /* OCKPostalAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_101 /* OCKPostalAddress.swift */; };
+		OBJ_244 /* OCKSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_102 /* OCKSchedule.swift */; };
+		OBJ_245 /* OCKScheduleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* OCKScheduleElement.swift */; };
+		OBJ_246 /* OCKScheduleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* OCKScheduleEvent.swift */; };
+		OBJ_247 /* OCKSemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* OCKSemanticVersion.swift */; };
+		OBJ_248 /* OCKStoreConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* OCKStoreConfiguration.swift */; };
+		OBJ_249 /* OCKTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* OCKTask.swift */; };
+		OBJ_250 /* OCKAdherenceQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* OCKAdherenceQuery.swift */; };
+		OBJ_251 /* OCKCarePlanQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* OCKCarePlanQuery.swift */; };
+		OBJ_252 /* OCKContactQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* OCKContactQuery.swift */; };
+		OBJ_253 /* OCKEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* OCKEntityQuery.swift */; };
+		OBJ_254 /* OCKEventQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_113 /* OCKEventQuery.swift */; };
+		OBJ_255 /* OCKInsightQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_114 /* OCKInsightQuery.swift */; };
+		OBJ_256 /* OCKOutcomeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_115 /* OCKOutcomeQuery.swift */; };
+		OBJ_257 /* OCKPatientQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_116 /* OCKPatientQuery.swift */; };
+		OBJ_258 /* OCKTaskQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_117 /* OCKTaskQuery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F30A8B38244E68AE00DF36D5 /* PBXContainerItemProxy */ = {
+		F30B105E245E379D002C1834 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CareKit::CareKitStore";
 			remoteInfo = CareKitStore;
 		};
-		F30A8B39244E68AE00DF36D5 /* PBXContainerItemProxy */ = {
+		F30B105F245E379F002C1834 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CareKitHyperProtectSDK::CareKitHyperProtectSDK";
 			remoteInfo = CareKitHyperProtectSDK;
 		};
-		F30A8B3A244E68AE00DF36D5 /* PBXContainerItemProxy */ = {
+		F30B1060245E379F002C1834 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CareKit::CareKitStore";
 			remoteInfo = CareKitStore;
 		};
-		F30A8B3B244E68AF00DF36D5 /* PBXContainerItemProxy */ = {
+		F30B1061245E379F002C1834 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -156,123 +158,126 @@
 		"CareKitHyperProtectSDK::CareKitHyperProtectSDK::Product" /* CareKitHyperProtectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CareKitHyperProtectSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CareKitHyperProtectSDK::CareKitHyperProtectSDKTests::Product" /* CareKitHyperProtectSDKTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = CareKitHyperProtectSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* IBMMongoRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBMMongoRemote.swift; sourceTree = "<group>"; };
-		OBJ_100 /* OCKSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKSchedule.swift; sourceTree = "<group>"; };
-		OBJ_101 /* OCKScheduleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKScheduleElement.swift; sourceTree = "<group>"; };
-		OBJ_102 /* OCKScheduleEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKScheduleEvent.swift; sourceTree = "<group>"; };
-		OBJ_103 /* OCKSemanticVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKSemanticVersion.swift; sourceTree = "<group>"; };
-		OBJ_104 /* OCKStoreConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKStoreConfiguration.swift; sourceTree = "<group>"; };
-		OBJ_105 /* OCKTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKTask.swift; sourceTree = "<group>"; };
-		OBJ_107 /* OCKAdherenceQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAdherenceQuery.swift; sourceTree = "<group>"; };
-		OBJ_108 /* OCKCarePlanQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCarePlanQuery.swift; sourceTree = "<group>"; };
-		OBJ_109 /* OCKContactQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKContactQuery.swift; sourceTree = "<group>"; };
-		OBJ_110 /* OCKEntityQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEntityQuery.swift; sourceTree = "<group>"; };
-		OBJ_111 /* OCKEventQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEventQuery.swift; sourceTree = "<group>"; };
-		OBJ_112 /* OCKInsightQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKInsightQuery.swift; sourceTree = "<group>"; };
-		OBJ_113 /* OCKOutcomeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKOutcomeQuery.swift; sourceTree = "<group>"; };
-		OBJ_114 /* OCKPatientQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPatientQuery.swift; sourceTree = "<group>"; };
-		OBJ_115 /* OCKTaskQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKTaskQuery.swift; sourceTree = "<group>"; };
-		OBJ_117 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/edesouza/Projects/CareKitHyperProtectSDK/.build/checkouts/CareKit-Private/Package.swift"; sourceTree = "<group>"; };
-		OBJ_122 /* CareSync */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CareSync; sourceTree = SOURCE_ROOT; };
-		OBJ_123 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		OBJ_124 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_100 /* OCKPatient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPatient.swift; sourceTree = "<group>"; };
+		OBJ_101 /* OCKPostalAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPostalAddress.swift; sourceTree = "<group>"; };
+		OBJ_102 /* OCKSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKSchedule.swift; sourceTree = "<group>"; };
+		OBJ_103 /* OCKScheduleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKScheduleElement.swift; sourceTree = "<group>"; };
+		OBJ_104 /* OCKScheduleEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKScheduleEvent.swift; sourceTree = "<group>"; };
+		OBJ_105 /* OCKSemanticVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKSemanticVersion.swift; sourceTree = "<group>"; };
+		OBJ_106 /* OCKStoreConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKStoreConfiguration.swift; sourceTree = "<group>"; };
+		OBJ_107 /* OCKTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKTask.swift; sourceTree = "<group>"; };
+		OBJ_109 /* OCKAdherenceQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAdherenceQuery.swift; sourceTree = "<group>"; };
+		OBJ_110 /* OCKCarePlanQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCarePlanQuery.swift; sourceTree = "<group>"; };
+		OBJ_111 /* OCKContactQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKContactQuery.swift; sourceTree = "<group>"; };
+		OBJ_112 /* OCKEntityQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEntityQuery.swift; sourceTree = "<group>"; };
+		OBJ_113 /* OCKEventQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEventQuery.swift; sourceTree = "<group>"; };
+		OBJ_114 /* OCKInsightQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKInsightQuery.swift; sourceTree = "<group>"; };
+		OBJ_115 /* OCKOutcomeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKOutcomeQuery.swift; sourceTree = "<group>"; };
+		OBJ_116 /* OCKPatientQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPatientQuery.swift; sourceTree = "<group>"; };
+		OBJ_117 /* OCKTaskQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKTaskQuery.swift; sourceTree = "<group>"; };
+		OBJ_119 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/edesouza/Projects/CareKitHyperProtectSDK/.build/checkouts/CareKit-Private/Package.swift"; sourceTree = "<group>"; };
+		OBJ_124 /* CareSync */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CareSync; sourceTree = SOURCE_ROOT; };
+		OBJ_125 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		OBJ_126 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_127 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		OBJ_13 /* IBMMongoRemoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBMMongoRemoteTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_20 /* OCKCDCarePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDCarePlan.swift; sourceTree = "<group>"; };
-		OBJ_21 /* OCKCDContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDContact.swift; sourceTree = "<group>"; };
-		OBJ_22 /* OCKCDHealthKitLinkage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDHealthKitLinkage.swift; sourceTree = "<group>"; };
-		OBJ_23 /* OCKCDNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDNote.swift; sourceTree = "<group>"; };
-		OBJ_24 /* OCKCDObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDObject.swift; sourceTree = "<group>"; };
-		OBJ_25 /* OCKCDOutcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDOutcome.swift; sourceTree = "<group>"; };
-		OBJ_26 /* OCKCDOutcomeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDOutcomeValue.swift; sourceTree = "<group>"; };
-		OBJ_27 /* OCKCDPatient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDPatient.swift; sourceTree = "<group>"; };
-		OBJ_28 /* OCKCDPersonName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDPersonName.swift; sourceTree = "<group>"; };
-		OBJ_29 /* OCKCDPostalAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDPostalAddress.swift; sourceTree = "<group>"; };
-		OBJ_30 /* OCKCDScheduleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDScheduleElement.swift; sourceTree = "<group>"; };
-		OBJ_31 /* OCKCDTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDTask.swift; sourceTree = "<group>"; };
-		OBJ_32 /* OCKCDVersionedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDVersionedObject.swift; sourceTree = "<group>"; };
-		OBJ_33 /* OCKManagedObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKManagedObjectModel.swift; sourceTree = "<group>"; };
-		OBJ_34 /* OCKStore+CarePlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+CarePlans.swift"; sourceTree = "<group>"; };
-		OBJ_35 /* OCKStore+Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+Contacts.swift"; sourceTree = "<group>"; };
-		OBJ_36 /* OCKStore+Outcomes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+Outcomes.swift"; sourceTree = "<group>"; };
-		OBJ_37 /* OCKStore+Patients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+Patients.swift"; sourceTree = "<group>"; };
-		OBJ_38 /* OCKStore+Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+Tasks.swift"; sourceTree = "<group>"; };
-		OBJ_39 /* OCKStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKStore.swift; sourceTree = "<group>"; };
-		OBJ_41 /* OCKRemoteSynchronizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKRemoteSynchronizable.swift; sourceTree = "<group>"; };
-		OBJ_42 /* OCKRevisionRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKRevisionRecord.swift; sourceTree = "<group>"; };
-		OBJ_43 /* OCKStore+Sync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+Sync.swift"; sourceTree = "<group>"; };
-		OBJ_44 /* OCKAdherenceAggregator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAdherenceAggregator.swift; sourceTree = "<group>"; };
-		OBJ_45 /* OCKEventAggregator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEventAggregator.swift; sourceTree = "<group>"; };
-		OBJ_46 /* OCKResultClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKResultClosure.swift; sourceTree = "<group>"; };
-		OBJ_47 /* OCKStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKStoreError.swift; sourceTree = "<group>"; };
-		OBJ_48 /* OCKUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKUtilities.swift; sourceTree = "<group>"; };
-		OBJ_51 /* OCKAnyCarePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyCarePlan.swift; sourceTree = "<group>"; };
-		OBJ_52 /* OCKAnyCarePlanStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyCarePlanStore.swift; sourceTree = "<group>"; };
-		OBJ_53 /* OCKCarePlanStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCarePlanStore.swift; sourceTree = "<group>"; };
-		OBJ_54 /* OCKCarePlanStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCarePlanStoreDelegate.swift; sourceTree = "<group>"; };
-		OBJ_56 /* OCKAnyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyContact.swift; sourceTree = "<group>"; };
-		OBJ_57 /* OCKAnyContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyContactStore.swift; sourceTree = "<group>"; };
-		OBJ_58 /* OCKContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKContactStore.swift; sourceTree = "<group>"; };
-		OBJ_59 /* OCKContactStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKContactStoreDelegate.swift; sourceTree = "<group>"; };
+		OBJ_21 /* OCKCDClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDClock.swift; sourceTree = "<group>"; };
+		OBJ_22 /* OCKCDContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDContact.swift; sourceTree = "<group>"; };
+		OBJ_23 /* OCKCDHealthKitLinkage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDHealthKitLinkage.swift; sourceTree = "<group>"; };
+		OBJ_24 /* OCKCDNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDNote.swift; sourceTree = "<group>"; };
+		OBJ_25 /* OCKCDObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDObject.swift; sourceTree = "<group>"; };
+		OBJ_26 /* OCKCDOutcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDOutcome.swift; sourceTree = "<group>"; };
+		OBJ_27 /* OCKCDOutcomeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDOutcomeValue.swift; sourceTree = "<group>"; };
+		OBJ_28 /* OCKCDPatient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDPatient.swift; sourceTree = "<group>"; };
+		OBJ_29 /* OCKCDPersonName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDPersonName.swift; sourceTree = "<group>"; };
+		OBJ_30 /* OCKCDPostalAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDPostalAddress.swift; sourceTree = "<group>"; };
+		OBJ_31 /* OCKCDScheduleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDScheduleElement.swift; sourceTree = "<group>"; };
+		OBJ_32 /* OCKCDTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDTask.swift; sourceTree = "<group>"; };
+		OBJ_33 /* OCKCDVersionedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCDVersionedObject.swift; sourceTree = "<group>"; };
+		OBJ_34 /* OCKManagedObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKManagedObjectModel.swift; sourceTree = "<group>"; };
+		OBJ_35 /* OCKStore+CarePlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+CarePlans.swift"; sourceTree = "<group>"; };
+		OBJ_36 /* OCKStore+Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+Contacts.swift"; sourceTree = "<group>"; };
+		OBJ_37 /* OCKStore+Outcomes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+Outcomes.swift"; sourceTree = "<group>"; };
+		OBJ_38 /* OCKStore+Patients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+Patients.swift"; sourceTree = "<group>"; };
+		OBJ_39 /* OCKStore+Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+Tasks.swift"; sourceTree = "<group>"; };
+		OBJ_40 /* OCKStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKStore.swift; sourceTree = "<group>"; };
+		OBJ_42 /* OCKPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPeer.swift; sourceTree = "<group>"; };
+		OBJ_43 /* OCKRemoteSynchronizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKRemoteSynchronizable.swift; sourceTree = "<group>"; };
+		OBJ_44 /* OCKRevisionRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKRevisionRecord.swift; sourceTree = "<group>"; };
+		OBJ_45 /* OCKStore+Synchronization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStore+Synchronization.swift"; sourceTree = "<group>"; };
+		OBJ_46 /* OCKAdherenceAggregator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAdherenceAggregator.swift; sourceTree = "<group>"; };
+		OBJ_47 /* OCKEventAggregator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEventAggregator.swift; sourceTree = "<group>"; };
+		OBJ_48 /* OCKResultClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKResultClosure.swift; sourceTree = "<group>"; };
+		OBJ_49 /* OCKStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKStoreError.swift; sourceTree = "<group>"; };
+		OBJ_50 /* OCKUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKUtilities.swift; sourceTree = "<group>"; };
+		OBJ_53 /* OCKAnyCarePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyCarePlan.swift; sourceTree = "<group>"; };
+		OBJ_54 /* OCKAnyCarePlanStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyCarePlanStore.swift; sourceTree = "<group>"; };
+		OBJ_55 /* OCKCarePlanStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCarePlanStore.swift; sourceTree = "<group>"; };
+		OBJ_56 /* OCKCarePlanStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCarePlanStoreDelegate.swift; sourceTree = "<group>"; };
+		OBJ_58 /* OCKAnyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyContact.swift; sourceTree = "<group>"; };
+		OBJ_59 /* OCKAnyContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyContactStore.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_61 /* OCKCoreDataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCoreDataStoreProtocol.swift; sourceTree = "<group>"; };
-		OBJ_62 /* OCKCoreDataTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCoreDataTaskStore.swift; sourceTree = "<group>"; };
-		OBJ_64 /* OCKAnyEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyEvent.swift; sourceTree = "<group>"; };
-		OBJ_65 /* OCKAnyEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyEventStore.swift; sourceTree = "<group>"; };
-		OBJ_66 /* OCKEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEventStore.swift; sourceTree = "<group>"; };
-		OBJ_67 /* OCKObjectCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKObjectCompatible.swift; sourceTree = "<group>"; };
-		OBJ_68 /* OCKStoreProtocol+Synchronous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStoreProtocol+Synchronous.swift"; sourceTree = "<group>"; };
-		OBJ_69 /* OCKStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKStoreProtocol.swift; sourceTree = "<group>"; };
-		OBJ_71 /* OCKAnyOutcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyOutcome.swift; sourceTree = "<group>"; };
-		OBJ_72 /* OCKAnyOutcomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyOutcomeStore.swift; sourceTree = "<group>"; };
-		OBJ_73 /* OCKOutcomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKOutcomeStore.swift; sourceTree = "<group>"; };
-		OBJ_74 /* OCKOutcomeStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKOutcomeStoreDelegate.swift; sourceTree = "<group>"; };
-		OBJ_76 /* OCKAnyPatient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyPatient.swift; sourceTree = "<group>"; };
-		OBJ_77 /* OCKAnyPatientStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyPatientStore.swift; sourceTree = "<group>"; };
-		OBJ_78 /* OCKPatientStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPatientStore.swift; sourceTree = "<group>"; };
-		OBJ_79 /* OCKPatientStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPatientStoreDelegate.swift; sourceTree = "<group>"; };
-		OBJ_81 /* OCKAnyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyTask.swift; sourceTree = "<group>"; };
-		OBJ_82 /* OCKAnyTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyTaskStore.swift; sourceTree = "<group>"; };
-		OBJ_83 /* OCKAnyVersionableTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyVersionableTask.swift; sourceTree = "<group>"; };
-		OBJ_84 /* OCKTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKTaskStore.swift; sourceTree = "<group>"; };
-		OBJ_85 /* OCKTaskStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKTaskStoreDelegate.swift; sourceTree = "<group>"; };
-		OBJ_87 /* OCKAdherence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAdherence.swift; sourceTree = "<group>"; };
-		OBJ_88 /* OCKBiologicalSex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKBiologicalSex.swift; sourceTree = "<group>"; };
-		OBJ_89 /* OCKCarePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCarePlan.swift; sourceTree = "<group>"; };
+		OBJ_60 /* OCKContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKContactStore.swift; sourceTree = "<group>"; };
+		OBJ_61 /* OCKContactStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKContactStoreDelegate.swift; sourceTree = "<group>"; };
+		OBJ_63 /* OCKCoreDataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCoreDataStoreProtocol.swift; sourceTree = "<group>"; };
+		OBJ_64 /* OCKCoreDataTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCoreDataTaskStore.swift; sourceTree = "<group>"; };
+		OBJ_66 /* OCKAnyEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyEvent.swift; sourceTree = "<group>"; };
+		OBJ_67 /* OCKAnyEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyEventStore.swift; sourceTree = "<group>"; };
+		OBJ_68 /* OCKEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEventStore.swift; sourceTree = "<group>"; };
+		OBJ_69 /* OCKObjectCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKObjectCompatible.swift; sourceTree = "<group>"; };
+		OBJ_70 /* OCKStoreProtocol+Synchronous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OCKStoreProtocol+Synchronous.swift"; sourceTree = "<group>"; };
+		OBJ_71 /* OCKStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKStoreProtocol.swift; sourceTree = "<group>"; };
+		OBJ_73 /* OCKAnyOutcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyOutcome.swift; sourceTree = "<group>"; };
+		OBJ_74 /* OCKAnyOutcomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyOutcomeStore.swift; sourceTree = "<group>"; };
+		OBJ_75 /* OCKOutcomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKOutcomeStore.swift; sourceTree = "<group>"; };
+		OBJ_76 /* OCKOutcomeStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKOutcomeStoreDelegate.swift; sourceTree = "<group>"; };
+		OBJ_78 /* OCKAnyPatient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyPatient.swift; sourceTree = "<group>"; };
+		OBJ_79 /* OCKAnyPatientStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyPatientStore.swift; sourceTree = "<group>"; };
+		OBJ_80 /* OCKPatientStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPatientStore.swift; sourceTree = "<group>"; };
+		OBJ_81 /* OCKPatientStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPatientStoreDelegate.swift; sourceTree = "<group>"; };
+		OBJ_83 /* OCKAnyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyTask.swift; sourceTree = "<group>"; };
+		OBJ_84 /* OCKAnyTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyTaskStore.swift; sourceTree = "<group>"; };
+		OBJ_85 /* OCKAnyVersionableTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAnyVersionableTask.swift; sourceTree = "<group>"; };
+		OBJ_86 /* OCKTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKTaskStore.swift; sourceTree = "<group>"; };
+		OBJ_87 /* OCKTaskStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKTaskStoreDelegate.swift; sourceTree = "<group>"; };
+		OBJ_89 /* OCKAdherence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKAdherence.swift; sourceTree = "<group>"; };
 		OBJ_9 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
-		OBJ_90 /* OCKContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKContact.swift; sourceTree = "<group>"; };
-		OBJ_91 /* OCKEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEntity.swift; sourceTree = "<group>"; };
-		OBJ_92 /* OCKEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEvent.swift; sourceTree = "<group>"; };
-		OBJ_93 /* OCKHealthKitLinkage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKHealthKitLinkage.swift; sourceTree = "<group>"; };
-		OBJ_94 /* OCKLabeledValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKLabeledValue.swift; sourceTree = "<group>"; };
-		OBJ_95 /* OCKNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKNote.swift; sourceTree = "<group>"; };
-		OBJ_96 /* OCKOutcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKOutcome.swift; sourceTree = "<group>"; };
-		OBJ_97 /* OCKOutcomeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKOutcomeValue.swift; sourceTree = "<group>"; };
-		OBJ_98 /* OCKPatient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPatient.swift; sourceTree = "<group>"; };
-		OBJ_99 /* OCKPostalAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKPostalAddress.swift; sourceTree = "<group>"; };
+		OBJ_90 /* OCKBiologicalSex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKBiologicalSex.swift; sourceTree = "<group>"; };
+		OBJ_91 /* OCKCarePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKCarePlan.swift; sourceTree = "<group>"; };
+		OBJ_92 /* OCKContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKContact.swift; sourceTree = "<group>"; };
+		OBJ_93 /* OCKEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEntity.swift; sourceTree = "<group>"; };
+		OBJ_94 /* OCKEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKEvent.swift; sourceTree = "<group>"; };
+		OBJ_95 /* OCKHealthKitLinkage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKHealthKitLinkage.swift; sourceTree = "<group>"; };
+		OBJ_96 /* OCKLabeledValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKLabeledValue.swift; sourceTree = "<group>"; };
+		OBJ_97 /* OCKNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKNote.swift; sourceTree = "<group>"; };
+		OBJ_98 /* OCKOutcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKOutcome.swift; sourceTree = "<group>"; };
+		OBJ_99 /* OCKOutcomeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCKOutcomeValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_132 /* Frameworks */ = {
+		OBJ_135 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				F3926426245E10F4003EA100 /* CareKitStore in Frameworks */,
-				OBJ_133 /* CareKitStore.framework in Frameworks */,
-				F392642A245E10F4003EA100 /* CareKit in Frameworks */,
-				F3926428245E10F4003EA100 /* CareKitUI in Frameworks */,
+				F30B1068245E3835002C1834 /* CareKitStore in Frameworks */,
+				F30B1066245E3835002C1834 /* CareKit in Frameworks */,
+				F30B1064245E3835002C1834 /* CareKitUI in Frameworks */,
+				OBJ_136 /* CareKitStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_154 /* Frameworks */ = {
+		OBJ_157 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_155 /* CareKitHyperProtectSDK.framework in Frameworks */,
-				OBJ_156 /* CareKitStore.framework in Frameworks */,
+				OBJ_158 /* CareKitHyperProtectSDK.framework in Frameworks */,
+				OBJ_159 /* CareKitStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_254 /* Frameworks */ = {
+		OBJ_259 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
@@ -282,18 +287,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		OBJ_106 /* Queries */ = {
+		OBJ_108 /* Queries */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_107 /* OCKAdherenceQuery.swift */,
-				OBJ_108 /* OCKCarePlanQuery.swift */,
-				OBJ_109 /* OCKContactQuery.swift */,
-				OBJ_110 /* OCKEntityQuery.swift */,
-				OBJ_111 /* OCKEventQuery.swift */,
-				OBJ_112 /* OCKInsightQuery.swift */,
-				OBJ_113 /* OCKOutcomeQuery.swift */,
-				OBJ_114 /* OCKPatientQuery.swift */,
-				OBJ_115 /* OCKTaskQuery.swift */,
+				OBJ_109 /* OCKAdherenceQuery.swift */,
+				OBJ_110 /* OCKCarePlanQuery.swift */,
+				OBJ_111 /* OCKContactQuery.swift */,
+				OBJ_112 /* OCKEntityQuery.swift */,
+				OBJ_113 /* OCKEventQuery.swift */,
+				OBJ_114 /* OCKInsightQuery.swift */,
+				OBJ_115 /* OCKOutcomeQuery.swift */,
+				OBJ_116 /* OCKPatientQuery.swift */,
+				OBJ_117 /* OCKTaskQuery.swift */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -306,23 +311,13 @@
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_116 /* CareKitUI */ = {
+		OBJ_118 /* CareKitUI */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = CareKitUI;
 			path = ".build/checkouts/CareKit-Private/CareKitUI/CareKitUI";
 			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_118 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				"CareKitHyperProtectSDK::CareKitHyperProtectSDKTests::Product" /* CareKitHyperProtectSDKTests.xctest */,
-				"CareKitHyperProtectSDK::CareKitHyperProtectSDK::Product" /* CareKitHyperProtectSDK.framework */,
-				"CareKit::CareKitStore::Product" /* CareKitStore.framework */,
-			);
-			name = Products;
-			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		OBJ_12 /* CareKitHyperProtectSDKTests */ = {
 			isa = PBXGroup;
@@ -333,6 +328,16 @@
 			name = CareKitHyperProtectSDKTests;
 			path = Tests/CareKitHyperProtectSDKTests;
 			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_120 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"CareKitHyperProtectSDK::CareKitHyperProtectSDK::Product" /* CareKitHyperProtectSDK.framework */,
+				"CareKitHyperProtectSDK::CareKitHyperProtectSDKTests::Product" /* CareKitHyperProtectSDKTests.xctest */,
+				"CareKit::CareKitStore::Product" /* CareKitStore.framework */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		OBJ_15 /* Dependencies */ = {
 			isa = PBXGroup;
@@ -347,8 +352,8 @@
 			children = (
 				OBJ_17 /* CareKit */,
 				OBJ_18 /* CareKitStore */,
-				OBJ_116 /* CareKitUI */,
-				OBJ_117 /* Package.swift */,
+				OBJ_118 /* CareKitUI */,
+				OBJ_119 /* Package.swift */,
 			);
 			name = CareKit;
 			sourceTree = SOURCE_ROOT;
@@ -365,13 +370,13 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_19 /* CoreData */,
-				OBJ_44 /* OCKAdherenceAggregator.swift */,
-				OBJ_45 /* OCKEventAggregator.swift */,
-				OBJ_46 /* OCKResultClosure.swift */,
-				OBJ_47 /* OCKStoreError.swift */,
-				OBJ_48 /* OCKUtilities.swift */,
-				OBJ_49 /* Protocols */,
-				OBJ_86 /* Structs */,
+				OBJ_46 /* OCKAdherenceAggregator.swift */,
+				OBJ_47 /* OCKEventAggregator.swift */,
+				OBJ_48 /* OCKResultClosure.swift */,
+				OBJ_49 /* OCKStoreError.swift */,
+				OBJ_50 /* OCKUtilities.swift */,
+				OBJ_51 /* Protocols */,
+				OBJ_88 /* Structs */,
 			);
 			name = CareKitStore;
 			path = ".build/checkouts/CareKit-Private/CareKitStore/CareKitStore";
@@ -381,108 +386,112 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_20 /* OCKCDCarePlan.swift */,
-				OBJ_21 /* OCKCDContact.swift */,
-				OBJ_22 /* OCKCDHealthKitLinkage.swift */,
-				OBJ_23 /* OCKCDNote.swift */,
-				OBJ_24 /* OCKCDObject.swift */,
-				OBJ_25 /* OCKCDOutcome.swift */,
-				OBJ_26 /* OCKCDOutcomeValue.swift */,
-				OBJ_27 /* OCKCDPatient.swift */,
-				OBJ_28 /* OCKCDPersonName.swift */,
-				OBJ_29 /* OCKCDPostalAddress.swift */,
-				OBJ_30 /* OCKCDScheduleElement.swift */,
-				OBJ_31 /* OCKCDTask.swift */,
-				OBJ_32 /* OCKCDVersionedObject.swift */,
-				OBJ_33 /* OCKManagedObjectModel.swift */,
-				OBJ_34 /* OCKStore+CarePlans.swift */,
-				OBJ_35 /* OCKStore+Contacts.swift */,
-				OBJ_36 /* OCKStore+Outcomes.swift */,
-				OBJ_37 /* OCKStore+Patients.swift */,
-				OBJ_38 /* OCKStore+Tasks.swift */,
-				OBJ_39 /* OCKStore.swift */,
-				OBJ_40 /* Syncronization */,
+				OBJ_21 /* OCKCDClock.swift */,
+				OBJ_22 /* OCKCDContact.swift */,
+				OBJ_23 /* OCKCDHealthKitLinkage.swift */,
+				OBJ_24 /* OCKCDNote.swift */,
+				OBJ_25 /* OCKCDObject.swift */,
+				OBJ_26 /* OCKCDOutcome.swift */,
+				OBJ_27 /* OCKCDOutcomeValue.swift */,
+				OBJ_28 /* OCKCDPatient.swift */,
+				OBJ_29 /* OCKCDPersonName.swift */,
+				OBJ_30 /* OCKCDPostalAddress.swift */,
+				OBJ_31 /* OCKCDScheduleElement.swift */,
+				OBJ_32 /* OCKCDTask.swift */,
+				OBJ_33 /* OCKCDVersionedObject.swift */,
+				OBJ_34 /* OCKManagedObjectModel.swift */,
+				OBJ_35 /* OCKStore+CarePlans.swift */,
+				OBJ_36 /* OCKStore+Contacts.swift */,
+				OBJ_37 /* OCKStore+Outcomes.swift */,
+				OBJ_38 /* OCKStore+Patients.swift */,
+				OBJ_39 /* OCKStore+Tasks.swift */,
+				OBJ_40 /* OCKStore.swift */,
+				OBJ_41 /* Synchronization */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		OBJ_40 /* Syncronization */ = {
+		OBJ_41 /* Synchronization */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_41 /* OCKRemoteSynchronizable.swift */,
-				OBJ_42 /* OCKRevisionRecord.swift */,
-				OBJ_43 /* OCKStore+Sync.swift */,
+				OBJ_42 /* OCKPeer.swift */,
+				OBJ_43 /* OCKRemoteSynchronizable.swift */,
+				OBJ_44 /* OCKRevisionRecord.swift */,
+				OBJ_45 /* OCKStore+Synchronization.swift */,
 			);
-			path = Syncronization;
+			path = Synchronization;
 			sourceTree = "<group>";
 		};
-		OBJ_49 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_50 /* CarePlans */,
-				OBJ_55 /* Contacts */,
-				OBJ_60 /* CoreData */,
-				OBJ_63 /* Events */,
-				OBJ_67 /* OCKObjectCompatible.swift */,
-				OBJ_68 /* OCKStoreProtocol+Synchronous.swift */,
-				OBJ_69 /* OCKStoreProtocol.swift */,
-				OBJ_70 /* Outcomes */,
-				OBJ_75 /* Patients */,
-				OBJ_80 /* Tasks */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_11 /* Tests */,
 				OBJ_15 /* Dependencies */,
-				OBJ_118 /* Products */,
-				OBJ_122 /* CareSync */,
-				OBJ_123 /* LICENSE */,
-				OBJ_124 /* README.md */,
+				OBJ_120 /* Products */,
+				OBJ_124 /* CareSync */,
+				OBJ_125 /* LICENSE */,
+				OBJ_126 /* README.md */,
+				OBJ_127 /* CONTRIBUTING.md */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
-		OBJ_50 /* CarePlans */ = {
+		OBJ_51 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_51 /* OCKAnyCarePlan.swift */,
-				OBJ_52 /* OCKAnyCarePlanStore.swift */,
-				OBJ_53 /* OCKCarePlanStore.swift */,
-				OBJ_54 /* OCKCarePlanStoreDelegate.swift */,
+				OBJ_52 /* CarePlans */,
+				OBJ_57 /* Contacts */,
+				OBJ_62 /* CoreData */,
+				OBJ_65 /* Events */,
+				OBJ_69 /* OCKObjectCompatible.swift */,
+				OBJ_70 /* OCKStoreProtocol+Synchronous.swift */,
+				OBJ_71 /* OCKStoreProtocol.swift */,
+				OBJ_72 /* Outcomes */,
+				OBJ_77 /* Patients */,
+				OBJ_82 /* Tasks */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		OBJ_52 /* CarePlans */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_53 /* OCKAnyCarePlan.swift */,
+				OBJ_54 /* OCKAnyCarePlanStore.swift */,
+				OBJ_55 /* OCKCarePlanStore.swift */,
+				OBJ_56 /* OCKCarePlanStoreDelegate.swift */,
 			);
 			path = CarePlans;
 			sourceTree = "<group>";
 		};
-		OBJ_55 /* Contacts */ = {
+		OBJ_57 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_56 /* OCKAnyContact.swift */,
-				OBJ_57 /* OCKAnyContactStore.swift */,
-				OBJ_58 /* OCKContactStore.swift */,
-				OBJ_59 /* OCKContactStoreDelegate.swift */,
+				OBJ_58 /* OCKAnyContact.swift */,
+				OBJ_59 /* OCKAnyContactStore.swift */,
+				OBJ_60 /* OCKContactStore.swift */,
+				OBJ_61 /* OCKContactStoreDelegate.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
 		};
-		OBJ_60 /* CoreData */ = {
+		OBJ_62 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_61 /* OCKCoreDataStoreProtocol.swift */,
-				OBJ_62 /* OCKCoreDataTaskStore.swift */,
+				OBJ_63 /* OCKCoreDataStoreProtocol.swift */,
+				OBJ_64 /* OCKCoreDataTaskStore.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		OBJ_63 /* Events */ = {
+		OBJ_65 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_64 /* OCKAnyEvent.swift */,
-				OBJ_65 /* OCKAnyEventStore.swift */,
-				OBJ_66 /* OCKEventStore.swift */,
+				OBJ_66 /* OCKAnyEvent.swift */,
+				OBJ_67 /* OCKAnyEventStore.swift */,
+				OBJ_68 /* OCKEventStore.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -495,24 +504,24 @@
 			name = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_70 /* Outcomes */ = {
+		OBJ_72 /* Outcomes */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_71 /* OCKAnyOutcome.swift */,
-				OBJ_72 /* OCKAnyOutcomeStore.swift */,
-				OBJ_73 /* OCKOutcomeStore.swift */,
-				OBJ_74 /* OCKOutcomeStoreDelegate.swift */,
+				OBJ_73 /* OCKAnyOutcome.swift */,
+				OBJ_74 /* OCKAnyOutcomeStore.swift */,
+				OBJ_75 /* OCKOutcomeStore.swift */,
+				OBJ_76 /* OCKOutcomeStoreDelegate.swift */,
 			);
 			path = Outcomes;
 			sourceTree = "<group>";
 		};
-		OBJ_75 /* Patients */ = {
+		OBJ_77 /* Patients */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_76 /* OCKAnyPatient.swift */,
-				OBJ_77 /* OCKAnyPatientStore.swift */,
-				OBJ_78 /* OCKPatientStore.swift */,
-				OBJ_79 /* OCKPatientStoreDelegate.swift */,
+				OBJ_78 /* OCKAnyPatient.swift */,
+				OBJ_79 /* OCKAnyPatientStore.swift */,
+				OBJ_80 /* OCKPatientStore.swift */,
+				OBJ_81 /* OCKPatientStoreDelegate.swift */,
 			);
 			path = Patients;
 			sourceTree = "<group>";
@@ -527,41 +536,41 @@
 			path = Sources/CareKitHyperProtectSDK;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_80 /* Tasks */ = {
+		OBJ_82 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_81 /* OCKAnyTask.swift */,
-				OBJ_82 /* OCKAnyTaskStore.swift */,
-				OBJ_83 /* OCKAnyVersionableTask.swift */,
-				OBJ_84 /* OCKTaskStore.swift */,
-				OBJ_85 /* OCKTaskStoreDelegate.swift */,
+				OBJ_83 /* OCKAnyTask.swift */,
+				OBJ_84 /* OCKAnyTaskStore.swift */,
+				OBJ_85 /* OCKAnyVersionableTask.swift */,
+				OBJ_86 /* OCKTaskStore.swift */,
+				OBJ_87 /* OCKTaskStoreDelegate.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
 		};
-		OBJ_86 /* Structs */ = {
+		OBJ_88 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_87 /* OCKAdherence.swift */,
-				OBJ_88 /* OCKBiologicalSex.swift */,
-				OBJ_89 /* OCKCarePlan.swift */,
-				OBJ_90 /* OCKContact.swift */,
-				OBJ_91 /* OCKEntity.swift */,
-				OBJ_92 /* OCKEvent.swift */,
-				OBJ_93 /* OCKHealthKitLinkage.swift */,
-				OBJ_94 /* OCKLabeledValue.swift */,
-				OBJ_95 /* OCKNote.swift */,
-				OBJ_96 /* OCKOutcome.swift */,
-				OBJ_97 /* OCKOutcomeValue.swift */,
-				OBJ_98 /* OCKPatient.swift */,
-				OBJ_99 /* OCKPostalAddress.swift */,
-				OBJ_100 /* OCKSchedule.swift */,
-				OBJ_101 /* OCKScheduleElement.swift */,
-				OBJ_102 /* OCKScheduleEvent.swift */,
-				OBJ_103 /* OCKSemanticVersion.swift */,
-				OBJ_104 /* OCKStoreConfiguration.swift */,
-				OBJ_105 /* OCKTask.swift */,
-				OBJ_106 /* Queries */,
+				OBJ_89 /* OCKAdherence.swift */,
+				OBJ_90 /* OCKBiologicalSex.swift */,
+				OBJ_91 /* OCKCarePlan.swift */,
+				OBJ_92 /* OCKContact.swift */,
+				OBJ_93 /* OCKEntity.swift */,
+				OBJ_94 /* OCKEvent.swift */,
+				OBJ_95 /* OCKHealthKitLinkage.swift */,
+				OBJ_96 /* OCKLabeledValue.swift */,
+				OBJ_97 /* OCKNote.swift */,
+				OBJ_98 /* OCKOutcome.swift */,
+				OBJ_99 /* OCKOutcomeValue.swift */,
+				OBJ_100 /* OCKPatient.swift */,
+				OBJ_101 /* OCKPostalAddress.swift */,
+				OBJ_102 /* OCKSchedule.swift */,
+				OBJ_103 /* OCKScheduleElement.swift */,
+				OBJ_104 /* OCKScheduleEvent.swift */,
+				OBJ_105 /* OCKSemanticVersion.swift */,
+				OBJ_106 /* OCKStoreConfiguration.swift */,
+				OBJ_107 /* OCKTask.swift */,
+				OBJ_108 /* Queries */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -571,10 +580,10 @@
 /* Begin PBXNativeTarget section */
 		"CareKit::CareKitStore" /* CareKitStore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_165 /* Build configuration list for PBXNativeTarget "CareKitStore" */;
+			buildConfigurationList = OBJ_168 /* Build configuration list for PBXNativeTarget "CareKitStore" */;
 			buildPhases = (
-				OBJ_168 /* Sources */,
-				OBJ_254 /* Frameworks */,
+				OBJ_171 /* Sources */,
+				OBJ_259 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -587,9 +596,9 @@
 		};
 		"CareKit::SwiftPMPackageDescription" /* CareKitPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_160 /* Build configuration list for PBXNativeTarget "CareKitPackageDescription" */;
+			buildConfigurationList = OBJ_163 /* Build configuration list for PBXNativeTarget "CareKitPackageDescription" */;
 			buildPhases = (
-				OBJ_163 /* Sources */,
+				OBJ_166 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -601,21 +610,21 @@
 		};
 		"CareKitHyperProtectSDK::CareKitHyperProtectSDK" /* CareKitHyperProtectSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_126 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDK" */;
+			buildConfigurationList = OBJ_129 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDK" */;
 			buildPhases = (
-				OBJ_129 /* Sources */,
-				OBJ_132 /* Frameworks */,
+				OBJ_132 /* Sources */,
+				OBJ_135 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_134 /* PBXTargetDependency */,
+				OBJ_137 /* PBXTargetDependency */,
 			);
 			name = CareKitHyperProtectSDK;
 			packageProductDependencies = (
-				F3926425245E10F4003EA100 /* CareKitStore */,
-				F3926427245E10F4003EA100 /* CareKitUI */,
-				F3926429245E10F4003EA100 /* CareKit */,
+				F30B1063245E3835002C1834 /* CareKitUI */,
+				F30B1065245E3835002C1834 /* CareKit */,
+				F30B1067245E3835002C1834 /* CareKitStore */,
 			);
 			productName = CareKitHyperProtectSDK;
 			productReference = "CareKitHyperProtectSDK::CareKitHyperProtectSDK::Product" /* CareKitHyperProtectSDK.framework */;
@@ -623,16 +632,16 @@
 		};
 		"CareKitHyperProtectSDK::CareKitHyperProtectSDKTests" /* CareKitHyperProtectSDKTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_148 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDKTests" */;
+			buildConfigurationList = OBJ_151 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDKTests" */;
 			buildPhases = (
-				OBJ_151 /* Sources */,
-				OBJ_154 /* Frameworks */,
+				OBJ_154 /* Sources */,
+				OBJ_157 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_157 /* PBXTargetDependency */,
-				OBJ_158 /* PBXTargetDependency */,
+				OBJ_160 /* PBXTargetDependency */,
+				OBJ_161 /* PBXTargetDependency */,
 			);
 			name = CareKitHyperProtectSDKTests;
 			productName = CareKitHyperProtectSDKTests;
@@ -641,9 +650,9 @@
 		};
 		"CareKitHyperProtectSDK::SwiftPMPackageDescription" /* CareKitHyperProtectSDKPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_137 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDKPackageDescription" */;
+			buildConfigurationList = OBJ_140 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDKPackageDescription" */;
 			buildPhases = (
-				OBJ_140 /* Sources */,
+				OBJ_143 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -669,11 +678,11 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5;
+			mainGroup = OBJ_5 /*  */;
 			packageReferences = (
-				F3926424245E10F4003EA100 /* XCRemoteSwiftPackageReference "CareKit-Private" */,
+				F30B1062245E3835002C1834 /* XCRemoteSwiftPackageReference "CareKit-Private" */,
 			);
-			productRefGroup = OBJ_118 /* Products */;
+			productRefGroup = OBJ_120 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -688,159 +697,161 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_129 /* Sources */ = {
+		OBJ_132 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_130 /* HTTPStatusCode.swift in Sources */,
-				OBJ_131 /* IBMMongoRemote.swift in Sources */,
+				OBJ_133 /* HTTPStatusCode.swift in Sources */,
+				OBJ_134 /* IBMMongoRemote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_140 /* Sources */ = {
+		OBJ_143 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_141 /* Package.swift in Sources */,
+				OBJ_144 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_151 /* Sources */ = {
+		OBJ_154 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_152 /* IBMMongoRemoteTests.swift in Sources */,
-				OBJ_153 /* XCTestManifests.swift in Sources */,
+				OBJ_155 /* IBMMongoRemoteTests.swift in Sources */,
+				OBJ_156 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_163 /* Sources */ = {
+		OBJ_166 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_164 /* Package.swift in Sources */,
+				OBJ_167 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_168 /* Sources */ = {
+		OBJ_171 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_169 /* OCKCDCarePlan.swift in Sources */,
-				OBJ_170 /* OCKCDContact.swift in Sources */,
-				OBJ_171 /* OCKCDHealthKitLinkage.swift in Sources */,
-				OBJ_172 /* OCKCDNote.swift in Sources */,
-				OBJ_173 /* OCKCDObject.swift in Sources */,
-				OBJ_174 /* OCKCDOutcome.swift in Sources */,
-				OBJ_175 /* OCKCDOutcomeValue.swift in Sources */,
-				OBJ_176 /* OCKCDPatient.swift in Sources */,
-				OBJ_177 /* OCKCDPersonName.swift in Sources */,
-				OBJ_178 /* OCKCDPostalAddress.swift in Sources */,
-				OBJ_179 /* OCKCDScheduleElement.swift in Sources */,
-				OBJ_180 /* OCKCDTask.swift in Sources */,
-				OBJ_181 /* OCKCDVersionedObject.swift in Sources */,
-				OBJ_182 /* OCKManagedObjectModel.swift in Sources */,
-				OBJ_183 /* OCKStore+CarePlans.swift in Sources */,
-				OBJ_184 /* OCKStore+Contacts.swift in Sources */,
-				OBJ_185 /* OCKStore+Outcomes.swift in Sources */,
-				OBJ_186 /* OCKStore+Patients.swift in Sources */,
-				OBJ_187 /* OCKStore+Tasks.swift in Sources */,
-				OBJ_188 /* OCKStore.swift in Sources */,
-				OBJ_189 /* OCKRemoteSynchronizable.swift in Sources */,
-				OBJ_190 /* OCKRevisionRecord.swift in Sources */,
-				OBJ_191 /* OCKStore+Sync.swift in Sources */,
-				OBJ_192 /* OCKAdherenceAggregator.swift in Sources */,
-				OBJ_193 /* OCKEventAggregator.swift in Sources */,
-				OBJ_194 /* OCKResultClosure.swift in Sources */,
-				OBJ_195 /* OCKStoreError.swift in Sources */,
-				OBJ_196 /* OCKUtilities.swift in Sources */,
-				OBJ_197 /* OCKAnyCarePlan.swift in Sources */,
-				OBJ_198 /* OCKAnyCarePlanStore.swift in Sources */,
-				OBJ_199 /* OCKCarePlanStore.swift in Sources */,
-				OBJ_200 /* OCKCarePlanStoreDelegate.swift in Sources */,
-				OBJ_201 /* OCKAnyContact.swift in Sources */,
-				OBJ_202 /* OCKAnyContactStore.swift in Sources */,
-				OBJ_203 /* OCKContactStore.swift in Sources */,
-				OBJ_204 /* OCKContactStoreDelegate.swift in Sources */,
-				OBJ_205 /* OCKCoreDataStoreProtocol.swift in Sources */,
-				OBJ_206 /* OCKCoreDataTaskStore.swift in Sources */,
-				OBJ_207 /* OCKAnyEvent.swift in Sources */,
-				OBJ_208 /* OCKAnyEventStore.swift in Sources */,
-				OBJ_209 /* OCKEventStore.swift in Sources */,
-				OBJ_210 /* OCKObjectCompatible.swift in Sources */,
-				OBJ_211 /* OCKStoreProtocol+Synchronous.swift in Sources */,
-				OBJ_212 /* OCKStoreProtocol.swift in Sources */,
-				OBJ_213 /* OCKAnyOutcome.swift in Sources */,
-				OBJ_214 /* OCKAnyOutcomeStore.swift in Sources */,
-				OBJ_215 /* OCKOutcomeStore.swift in Sources */,
-				OBJ_216 /* OCKOutcomeStoreDelegate.swift in Sources */,
-				OBJ_217 /* OCKAnyPatient.swift in Sources */,
-				OBJ_218 /* OCKAnyPatientStore.swift in Sources */,
-				OBJ_219 /* OCKPatientStore.swift in Sources */,
-				OBJ_220 /* OCKPatientStoreDelegate.swift in Sources */,
-				OBJ_221 /* OCKAnyTask.swift in Sources */,
-				OBJ_222 /* OCKAnyTaskStore.swift in Sources */,
-				OBJ_223 /* OCKAnyVersionableTask.swift in Sources */,
-				OBJ_224 /* OCKTaskStore.swift in Sources */,
-				OBJ_225 /* OCKTaskStoreDelegate.swift in Sources */,
-				OBJ_226 /* OCKAdherence.swift in Sources */,
-				OBJ_227 /* OCKBiologicalSex.swift in Sources */,
-				OBJ_228 /* OCKCarePlan.swift in Sources */,
-				OBJ_229 /* OCKContact.swift in Sources */,
-				OBJ_230 /* OCKEntity.swift in Sources */,
-				OBJ_231 /* OCKEvent.swift in Sources */,
-				OBJ_232 /* OCKHealthKitLinkage.swift in Sources */,
-				OBJ_233 /* OCKLabeledValue.swift in Sources */,
-				OBJ_234 /* OCKNote.swift in Sources */,
-				OBJ_235 /* OCKOutcome.swift in Sources */,
-				OBJ_236 /* OCKOutcomeValue.swift in Sources */,
-				OBJ_237 /* OCKPatient.swift in Sources */,
-				OBJ_238 /* OCKPostalAddress.swift in Sources */,
-				OBJ_239 /* OCKSchedule.swift in Sources */,
-				OBJ_240 /* OCKScheduleElement.swift in Sources */,
-				OBJ_241 /* OCKScheduleEvent.swift in Sources */,
-				OBJ_242 /* OCKSemanticVersion.swift in Sources */,
-				OBJ_243 /* OCKStoreConfiguration.swift in Sources */,
-				OBJ_244 /* OCKTask.swift in Sources */,
-				OBJ_245 /* OCKAdherenceQuery.swift in Sources */,
-				OBJ_246 /* OCKCarePlanQuery.swift in Sources */,
-				OBJ_247 /* OCKContactQuery.swift in Sources */,
-				OBJ_248 /* OCKEntityQuery.swift in Sources */,
-				OBJ_249 /* OCKEventQuery.swift in Sources */,
-				OBJ_250 /* OCKInsightQuery.swift in Sources */,
-				OBJ_251 /* OCKOutcomeQuery.swift in Sources */,
-				OBJ_252 /* OCKPatientQuery.swift in Sources */,
-				OBJ_253 /* OCKTaskQuery.swift in Sources */,
+				OBJ_172 /* OCKCDCarePlan.swift in Sources */,
+				OBJ_173 /* OCKCDClock.swift in Sources */,
+				OBJ_174 /* OCKCDContact.swift in Sources */,
+				OBJ_175 /* OCKCDHealthKitLinkage.swift in Sources */,
+				OBJ_176 /* OCKCDNote.swift in Sources */,
+				OBJ_177 /* OCKCDObject.swift in Sources */,
+				OBJ_178 /* OCKCDOutcome.swift in Sources */,
+				OBJ_179 /* OCKCDOutcomeValue.swift in Sources */,
+				OBJ_180 /* OCKCDPatient.swift in Sources */,
+				OBJ_181 /* OCKCDPersonName.swift in Sources */,
+				OBJ_182 /* OCKCDPostalAddress.swift in Sources */,
+				OBJ_183 /* OCKCDScheduleElement.swift in Sources */,
+				OBJ_184 /* OCKCDTask.swift in Sources */,
+				OBJ_185 /* OCKCDVersionedObject.swift in Sources */,
+				OBJ_186 /* OCKManagedObjectModel.swift in Sources */,
+				OBJ_187 /* OCKStore+CarePlans.swift in Sources */,
+				OBJ_188 /* OCKStore+Contacts.swift in Sources */,
+				OBJ_189 /* OCKStore+Outcomes.swift in Sources */,
+				OBJ_190 /* OCKStore+Patients.swift in Sources */,
+				OBJ_191 /* OCKStore+Tasks.swift in Sources */,
+				OBJ_192 /* OCKStore.swift in Sources */,
+				OBJ_193 /* OCKPeer.swift in Sources */,
+				OBJ_194 /* OCKRemoteSynchronizable.swift in Sources */,
+				OBJ_195 /* OCKRevisionRecord.swift in Sources */,
+				OBJ_196 /* OCKStore+Synchronization.swift in Sources */,
+				OBJ_197 /* OCKAdherenceAggregator.swift in Sources */,
+				OBJ_198 /* OCKEventAggregator.swift in Sources */,
+				OBJ_199 /* OCKResultClosure.swift in Sources */,
+				OBJ_200 /* OCKStoreError.swift in Sources */,
+				OBJ_201 /* OCKUtilities.swift in Sources */,
+				OBJ_202 /* OCKAnyCarePlan.swift in Sources */,
+				OBJ_203 /* OCKAnyCarePlanStore.swift in Sources */,
+				OBJ_204 /* OCKCarePlanStore.swift in Sources */,
+				OBJ_205 /* OCKCarePlanStoreDelegate.swift in Sources */,
+				OBJ_206 /* OCKAnyContact.swift in Sources */,
+				OBJ_207 /* OCKAnyContactStore.swift in Sources */,
+				OBJ_208 /* OCKContactStore.swift in Sources */,
+				OBJ_209 /* OCKContactStoreDelegate.swift in Sources */,
+				OBJ_210 /* OCKCoreDataStoreProtocol.swift in Sources */,
+				OBJ_211 /* OCKCoreDataTaskStore.swift in Sources */,
+				OBJ_212 /* OCKAnyEvent.swift in Sources */,
+				OBJ_213 /* OCKAnyEventStore.swift in Sources */,
+				OBJ_214 /* OCKEventStore.swift in Sources */,
+				OBJ_215 /* OCKObjectCompatible.swift in Sources */,
+				OBJ_216 /* OCKStoreProtocol+Synchronous.swift in Sources */,
+				OBJ_217 /* OCKStoreProtocol.swift in Sources */,
+				OBJ_218 /* OCKAnyOutcome.swift in Sources */,
+				OBJ_219 /* OCKAnyOutcomeStore.swift in Sources */,
+				OBJ_220 /* OCKOutcomeStore.swift in Sources */,
+				OBJ_221 /* OCKOutcomeStoreDelegate.swift in Sources */,
+				OBJ_222 /* OCKAnyPatient.swift in Sources */,
+				OBJ_223 /* OCKAnyPatientStore.swift in Sources */,
+				OBJ_224 /* OCKPatientStore.swift in Sources */,
+				OBJ_225 /* OCKPatientStoreDelegate.swift in Sources */,
+				OBJ_226 /* OCKAnyTask.swift in Sources */,
+				OBJ_227 /* OCKAnyTaskStore.swift in Sources */,
+				OBJ_228 /* OCKAnyVersionableTask.swift in Sources */,
+				OBJ_229 /* OCKTaskStore.swift in Sources */,
+				OBJ_230 /* OCKTaskStoreDelegate.swift in Sources */,
+				OBJ_231 /* OCKAdherence.swift in Sources */,
+				OBJ_232 /* OCKBiologicalSex.swift in Sources */,
+				OBJ_233 /* OCKCarePlan.swift in Sources */,
+				OBJ_234 /* OCKContact.swift in Sources */,
+				OBJ_235 /* OCKEntity.swift in Sources */,
+				OBJ_236 /* OCKEvent.swift in Sources */,
+				OBJ_237 /* OCKHealthKitLinkage.swift in Sources */,
+				OBJ_238 /* OCKLabeledValue.swift in Sources */,
+				OBJ_239 /* OCKNote.swift in Sources */,
+				OBJ_240 /* OCKOutcome.swift in Sources */,
+				OBJ_241 /* OCKOutcomeValue.swift in Sources */,
+				OBJ_242 /* OCKPatient.swift in Sources */,
+				OBJ_243 /* OCKPostalAddress.swift in Sources */,
+				OBJ_244 /* OCKSchedule.swift in Sources */,
+				OBJ_245 /* OCKScheduleElement.swift in Sources */,
+				OBJ_246 /* OCKScheduleEvent.swift in Sources */,
+				OBJ_247 /* OCKSemanticVersion.swift in Sources */,
+				OBJ_248 /* OCKStoreConfiguration.swift in Sources */,
+				OBJ_249 /* OCKTask.swift in Sources */,
+				OBJ_250 /* OCKAdherenceQuery.swift in Sources */,
+				OBJ_251 /* OCKCarePlanQuery.swift in Sources */,
+				OBJ_252 /* OCKContactQuery.swift in Sources */,
+				OBJ_253 /* OCKEntityQuery.swift in Sources */,
+				OBJ_254 /* OCKEventQuery.swift in Sources */,
+				OBJ_255 /* OCKInsightQuery.swift in Sources */,
+				OBJ_256 /* OCKOutcomeQuery.swift in Sources */,
+				OBJ_257 /* OCKPatientQuery.swift in Sources */,
+				OBJ_258 /* OCKTaskQuery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_134 /* PBXTargetDependency */ = {
+		OBJ_137 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CareKit::CareKitStore" /* CareKitStore */;
-			targetProxy = F30A8B38244E68AE00DF36D5 /* PBXContainerItemProxy */;
+			targetProxy = F30B105E245E379D002C1834 /* PBXContainerItemProxy */;
 		};
-		OBJ_146 /* PBXTargetDependency */ = {
+		OBJ_149 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CareKitHyperProtectSDK::CareKitHyperProtectSDKTests" /* CareKitHyperProtectSDKTests */;
-			targetProxy = F30A8B3B244E68AF00DF36D5 /* PBXContainerItemProxy */;
+			targetProxy = F30B1061245E379F002C1834 /* PBXContainerItemProxy */;
 		};
-		OBJ_157 /* PBXTargetDependency */ = {
+		OBJ_160 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CareKitHyperProtectSDK::CareKitHyperProtectSDK" /* CareKitHyperProtectSDK */;
-			targetProxy = F30A8B39244E68AE00DF36D5 /* PBXContainerItemProxy */;
+			targetProxy = F30B105F245E379F002C1834 /* PBXContainerItemProxy */;
 		};
-		OBJ_158 /* PBXTargetDependency */ = {
+		OBJ_161 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CareKit::CareKitStore" /* CareKitStore */;
-			targetProxy = F30A8B3A244E68AE00DF36D5 /* PBXContainerItemProxy */;
+			targetProxy = F30B1060245E379F002C1834 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_127 /* Debug */ = {
+		OBJ_130 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -871,7 +882,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_128 /* Release */ = {
+		OBJ_131 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -902,7 +913,7 @@
 			};
 			name = Release;
 		};
-		OBJ_138 /* Debug */ = {
+		OBJ_141 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -911,7 +922,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_139 /* Release */ = {
+		OBJ_142 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -920,19 +931,19 @@
 			};
 			name = Release;
 		};
-		OBJ_144 /* Debug */ = {
+		OBJ_147 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_145 /* Release */ = {
+		OBJ_148 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		OBJ_149 /* Debug */ = {
+		OBJ_152 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -961,7 +972,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_150 /* Release */ = {
+		OBJ_153 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -990,7 +1001,7 @@
 			};
 			name = Release;
 		};
-		OBJ_161 /* Debug */ = {
+		OBJ_164 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -999,7 +1010,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_162 /* Release */ = {
+		OBJ_165 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -1008,7 +1019,7 @@
 			};
 			name = Release;
 		};
-		OBJ_166 /* Debug */ = {
+		OBJ_169 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -1039,7 +1050,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_167 /* Release */ = {
+		OBJ_170 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -1125,56 +1136,56 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		OBJ_126 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDK" */ = {
+		OBJ_129 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_127 /* Debug */,
-				OBJ_128 /* Release */,
+				OBJ_130 /* Debug */,
+				OBJ_131 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_137 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDKPackageDescription" */ = {
+		OBJ_140 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDKPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_138 /* Debug */,
-				OBJ_139 /* Release */,
+				OBJ_141 /* Debug */,
+				OBJ_142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_143 /* Build configuration list for PBXAggregateTarget "CareKitHyperProtectSDKPackageTests" */ = {
+		OBJ_146 /* Build configuration list for PBXAggregateTarget "CareKitHyperProtectSDKPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_144 /* Debug */,
-				OBJ_145 /* Release */,
+				OBJ_147 /* Debug */,
+				OBJ_148 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_148 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDKTests" */ = {
+		OBJ_151 /* Build configuration list for PBXNativeTarget "CareKitHyperProtectSDKTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_149 /* Debug */,
-				OBJ_150 /* Release */,
+				OBJ_152 /* Debug */,
+				OBJ_153 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_160 /* Build configuration list for PBXNativeTarget "CareKitPackageDescription" */ = {
+		OBJ_163 /* Build configuration list for PBXNativeTarget "CareKitPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_161 /* Debug */,
-				OBJ_162 /* Release */,
+				OBJ_164 /* Debug */,
+				OBJ_165 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_165 /* Build configuration list for PBXNativeTarget "CareKitStore" */ = {
+		OBJ_168 /* Build configuration list for PBXNativeTarget "CareKitStore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_166 /* Debug */,
-				OBJ_167 /* Release */,
+				OBJ_169 /* Debug */,
+				OBJ_170 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1191,7 +1202,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F3926424245E10F4003EA100 /* XCRemoteSwiftPackageReference "CareKit-Private" */ = {
+		F30B1062245E3835002C1834 /* XCRemoteSwiftPackageReference "CareKit-Private" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/carekit-apple/CareKit-Private.git";
 			requirement = {
@@ -1202,20 +1213,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F3926425245E10F4003EA100 /* CareKitStore */ = {
+		F30B1063245E3835002C1834 /* CareKitUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F3926424245E10F4003EA100 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
-			productName = CareKitStore;
-		};
-		F3926427245E10F4003EA100 /* CareKitUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F3926424245E10F4003EA100 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
+			package = F30B1062245E3835002C1834 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
 			productName = CareKitUI;
 		};
-		F3926429245E10F4003EA100 /* CareKit */ = {
+		F30B1065245E3835002C1834 /* CareKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F3926424245E10F4003EA100 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
+			package = F30B1062245E3835002C1834 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
 			productName = CareKit;
+		};
+		F30B1067245E3835002C1834 /* CareKitStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F30B1062245E3835002C1834 /* XCRemoteSwiftPackageReference "CareKit-Private" */;
+			productName = CareKitStore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
