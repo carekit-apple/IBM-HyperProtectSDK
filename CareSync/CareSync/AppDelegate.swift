@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2019, Apple Inc. All rights reserved.
+Copyright (c) 2020, International Business Machines. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -32,21 +32,20 @@ import CareKit
 import CareKitStore
 import Contacts
 import UIKit
-import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let synchronizedStoreManager: OCKSynchronizedStoreManager = {
 
-        let ibmRemote = IBMMongoRemote()
+        let ibmRemote = IBMMongoRemote(id: "", appleId: "")
 
         let store = OCKStore(
             name: "sample",
             type: .inMemory,
             remote: ibmRemote)
         
-        store.populateSampleData()
+        //store.populateSampleData()
         
         return OCKSynchronizedStoreManager(wrapping: store)
     }()
@@ -67,7 +66,6 @@ private extension OCKStore {
 
     // Adds tasks and contacts into the store
     func populateSampleData() { //swiftlint:disable:this function_body_length
-
         let thisMorning = Calendar.current.startOfDay(for: Date())
         let aFewDaysAgo = Calendar.current.date(byAdding: .day, value: -4, to: thisMorning)!
         let beforeBreakfast = Calendar.current.date(byAdding: .hour, value: 8, to: aFewDaysAgo)!
