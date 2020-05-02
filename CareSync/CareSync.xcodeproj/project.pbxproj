@@ -98,16 +98,8 @@
 		03732F5F24197F5400A4613F /* CareKitStore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitStore.xcodeproj; path = "CareKit-Private/CareKitStore/CareKitStore.xcodeproj"; sourceTree = "<group>"; };
 		03732F6824197F5B00A4613F /* CareKitUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitUI.xcodeproj; path = "CareKit-Private/CareKitUI/CareKitUI.xcodeproj"; sourceTree = "<group>"; };
 		03EEB935241985D2002FA74E /* SyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncViewController.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		F392641C245DFE50003EA100 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPStatusCode.swift; path = ../../Sources/CareKitHyperProtectSDK/HTTPStatusCode.swift; sourceTree = "<group>"; };
-=======
-<<<<<<< HEAD
-		F30A8B46244FADFB00DF36D5 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPStatusCode.swift; path = ../../Sources/CareKitHyperProtectSDK/HTTPStatusCode.swift; sourceTree = "<group>"; };
-=======
 		03FEA6F0244FB36000834C2C /* IBMMongoRemote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBMMongoRemote.swift; sourceTree = "<group>"; };
 		03FEA6F1244FB36000834C2C /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
->>>>>>> 0834db1d30e8668628741dd8968854ecbbb6e428
->>>>>>> origin/tests
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,15 +139,8 @@
 		035EF90124196924005E2943 /* CareSync */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				F392641C245DFE50003EA100 /* HTTPStatusCode.swift */,
-=======
-<<<<<<< HEAD
 				F30A8B46244FADFB00DF36D5 /* HTTPStatusCode.swift */,
-=======
 				03FEA6EF244FB36000834C2C /* CareKitHyperProtectSDK */,
->>>>>>> 0834db1d30e8668628741dd8968854ecbbb6e428
->>>>>>> origin/tests
 				035EF90224196924005E2943 /* AppDelegate.swift */,
 				035EF90424196924005E2943 /* SceneDelegate.swift */,
 				035EF91E24196A53005E2943 /* CareViewController.swift */,
@@ -355,11 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				F3926423245DFE50003EA100 /* HTTPStatusCode.swift in Sources */,
-=======
 				F30A8B4D244FADFB00DF36D5 /* HTTPStatusCode.swift in Sources */,
->>>>>>> origin/tests
 				035EF90324196924005E2943 /* AppDelegate.swift in Sources */,
 				03FEA6F8244FB36000834C2C /* IBMMongoRemote.swift in Sources */,
 				035EF91F24196A53005E2943 /* CareViewController.swift in Sources */,

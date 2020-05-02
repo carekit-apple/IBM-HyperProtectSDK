@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let synchronizedStoreManager: OCKSynchronizedStoreManager = {
 
-        let ibmRemote = IBMMongoRemote(id: "", appleId: "")
+        let ibmRemote = IBMMongoRemote()
 
         let store = OCKStore(
             name: "sample",

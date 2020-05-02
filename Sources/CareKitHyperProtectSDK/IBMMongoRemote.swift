@@ -54,7 +54,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     
     // MARK: OCKRemoteSynchronizable
     
-    public weak var delegate: OCKRemoteSynchronizationDelegate?
+    public weak var delegate: OCKRemoteSynchronizableDelegate?
     
     public var automaticallySynchronizes: Bool = true
     
@@ -87,12 +87,9 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
             }
         }
     }
-
-    public func chooseConflictResolutionPolicy(
-        _ conflict: OCKMergeConflictDescription,
-        completion: @escaping (OCKMergeConflictResolutionPolicy) -> Void) {
-
-        completion(.keepDevice)
+    
+    public func chooseConflicResolutionPolicy(_ conflict: OCKMergeConflictDescription, completion: @escaping (OCKMergeConflictResolutionPolicy) -> Void) {
+         completion(.keepDevice)
     }
     
     // MARK: Internal
@@ -156,7 +153,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
 
         let urlString = url + F.endpoint
         var requestURL = URL(string: urlString)
-        var result: F? = nil
+        //var result: F? = nil
         
         if let knowledgeVector = knowledgeVector {
             requestURL?.appendQueryItem(name: "knowledgeVector", value: try! String(data: JSONEncoder().encode(knowledgeVector), encoding: .utf8))
