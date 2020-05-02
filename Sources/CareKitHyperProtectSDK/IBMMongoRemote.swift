@@ -256,7 +256,3 @@ public extension IBMMongoRemote {
         requestTask.resume()
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/tests
