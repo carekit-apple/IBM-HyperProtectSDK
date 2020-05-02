@@ -24,11 +24,7 @@ git clone --recursive git@github.com:carekit-apple/CareKitHyperProtectSDK.git
 
 2. Open the `Package.swift` file to edit the SPM package.
 
-3. Open `CareSync/CareSync.xcodeproj` to edit or run the sample app
-   1. Setup a mongoDB instance somewhere (I've been using Docker locally, for the meantime)
-   2. Modify `AppDelegate.swift` to point to a mongodb instance
-   3. Change `.inMemory` to `.onDisk` if you want the local database to persist between launches
-   4. Tap the "Sync" button in the top right hand corner of the app to trigger synchronization
+3. Run `swift package generate-xcodeproj` to pull dependencies
 
 ### Known Issues:
 
