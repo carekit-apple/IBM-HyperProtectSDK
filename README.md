@@ -13,7 +13,7 @@ git clone --recursive git@github.com:carekit-apple/CareKitHyperProtectSDK.git
 3. Open `CareSync/CareSync.xcodeproj` to edit or run the sample app
     1. Setup a mongoDB instance somewhere (I've been using Docker locally, for the meantime)
     3. Modify `AppDelegate.swift` to point to a mongodb instance
-    4. Change `.inMemory` to `.onDisk` if you don't want the local database to persist between launches
+    4. Change `.inMemory` to `.onDisk` if you want the local database to persist between launches
     5. Tap the "Sync" button in the top right hand corner of the app to trigger synchronization
 
 ### Known Issues: 
