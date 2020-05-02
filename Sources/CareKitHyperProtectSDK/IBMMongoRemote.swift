@@ -32,10 +32,8 @@ import UIKit
 import CareKitStore
 
 public final class IBMMongoRemote: OCKRemoteSynchronizable {
-    private var url: String
-    private var timeout: Int // seconds
-    private var id: String
-    private var appleId: String
+    private let url: String
+    private let timeout: TimeInterval
 
     private enum Method : String {
         case GET
@@ -46,15 +44,12 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
 
     ///
     /// - Parameters:
-    ///   - id: unique id to identify patient. This will typically be OCKPatient.id
     ///   - apiLocation: uri format (https://ip:port)
     ///   - apiTimeOut: timeout
     ///   - appleId: Apple ID  used for authentication and authorization
-    init(id : String, apiLocation : String = "http://localhost:3000/", apiTimeOut : Int = 2, appleId : String){
-        self.id = id
+    public init(apiLocation : String = "http://localhost:3000/", apiTimeOut : TimeInterval = 2){
         self.url = apiLocation
         self.timeout = apiTimeOut
-        self.appleId = appleId
     }
 
     // MARK: OCKRemoteSynchronizable
@@ -68,7 +63,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         mergeRevision: @escaping (OCKRevisionRecord, @escaping (Error?) -> Void) -> Void,
         completion: @escaping (Error?) -> Void) {
 
-        pullFromBackend(OCKRevisionRecord.self) { result in
+        pullFromBackend(OCKRevisionRecord.self, since : knowledgeVector) { result in
             switch result {
             case let .failure(error):
                 completion(error)
@@ -107,7 +102,11 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - data: body of call (type OCKxxx)
     ///   - method: POST/PUT/PATCH method
     ///   - completion: HTTP Status Code or error
-    private func pushToBackend<F: Fetchable>(with data: F, using method: Method, completion: @escaping (Result<HTTPStatusCode, Error>) -> Void) {
+    private func pushToBackend<F: Fetchable>(with data: F,
+    using method: Method,
+    completion: @escaping (Result<HTTPStatusCode, Error>) -> Void) {
+        debugPrint("PUT CALLED")
+        assert(method != .GET && method != .DELETE, "Cannot push using the GET/DELETE methods")
         let urlString = url + F.endpoint
         var request = URLRequest(url:  URL(string: urlString)!)
         
@@ -116,7 +115,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let outputStr = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
-        debugPrint("Input :" + outputStr!)
+        debugPrint("Pushing this JSON to backend :" + outputStr!)
         
         let requestTask = URLSession.shared.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
@@ -128,13 +127,12 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
             }
             
             guard (200 ... 299) ~= response.statusCode else { // check for http errors
-                debugPrint("statusCode should be 2xx, but is \(response.statusCode)")
                 completion(.failure(HTTPStatusCode.init(rawValue: response.statusCode)!))
                 return
             }
             
             if(error != nil) {
-                debugPrint(error.debugDescription)
+                 debugPrint(error.debugDescription)
                 completion(.failure(HTTPStatusCode.notFound))
             } else {
                 completion(.success(HTTPStatusCode.ok))
@@ -150,61 +148,50 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - fetchable: expected type of data from GET request
     ///   - knowledgeVector: logical vector clock
     ///   - completion: object of type OCKxxx or Error
-    private func pullFromBackend<F: Fetchable>(_ fetchable: F.Type, since knowledgeVector : OCKRevisionRecord.KnowledgeVector? = nil, completion: @escaping (Result<F, Error>) -> Void) {
-        //private func pullFronBackend<T : Codable>(since knowledgeVector : OCKRevisionRecord.KnowledgeVector? = nil, from resource : Resource, completion: @escaping (Result<T, Error>) -> Void)
+    private func pullFromBackend<F: Fetchable>(
+        _ fetchable: F.Type,
+        since knowledgeVector: OCKRevisionRecord.KnowledgeVector? = nil,
+        completion: @escaping (Result<F, Error>) -> Void) {
+        debugPrint("GET CALLED")
+
         let urlString = url + F.endpoint
-        
-        let requestURL = URL(string: urlString)
-        var request = URLRequest(url: requestURL!)
+        var requestURL = URL(string: urlString)
         var result: F? = nil
         
+        if let knowledgeVector = knowledgeVector {
+            requestURL?.appendQueryItem(name: "knowledgeVector", value: try! String(data: JSONEncoder().encode(knowledgeVector), encoding: .utf8))
+        }
+
+        var request = URLRequest(url: requestURL!)
         request.httpMethod = Method.GET.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
+        debugPrint(request)
+
         let requestTask = URLSession.shared.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
             
             guard let data = data,
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for networking error
+                    debugPrint(error.debugDescription)
                     completion(.failure(HTTPStatusCode.noResponse))
                     return
             }
             
             guard (200 ... 299) ~= response.statusCode else {
-                debugPrint("statusCode should be 2xx, but is \(response.statusCode)")
                 completion(.failure(HTTPStatusCode.init(rawValue: response.statusCode)!))
                 return
             }
             
-            if(error != nil) {
-                debugPrint(error.debugDescription)
-                completion(.failure(HTTPStatusCode.notFound))
-            } else {
+            do {
                 let outputStr = String(data: data, encoding: String.Encoding.utf8) as String?
                 debugPrint("JSON returned : \n" + outputStr!)
+                let result = try JSONDecoder().decode(F.self, from: data)
                 
-                do {
-                    result = try JSONDecoder().decode(F.self, from : data)
-                } catch let DecodingError.dataCorrupted(context) {
-                    debugPrint(context)
-                } catch let DecodingError.keyNotFound(key, context) {
-                    debugPrint("Key '\(key)' not found:", context.debugDescription)
-                    debugPrint("codingPath:", context.codingPath)
-                } catch let DecodingError.valueNotFound(value, context) {
-                    debugPrint("Value '\(value)' not found:", context.debugDescription)
-                    debugPrint("codingPath:", context.codingPath)
-                } catch let DecodingError.typeMismatch(type, context)  {
-                    debugPrint("Type '\(type)' mismatch:", context.debugDescription)
-                    debugPrint("codingPath:", context.codingPath)
-                } catch {
-                    debugPrint("error: ", error)
-                }
-                if (result == nil){
-                    completion(.failure(HTTPStatusCode.unprocessableEntity))
-                } else {
-                    completion(.success(result!))
-                }
+                completion(.success(result))
+            } catch {
+                completion(.failure(error))
             }
         }
         
@@ -217,4 +204,55 @@ private protocol Fetchable: Codable {
 }
 extension OCKRevisionRecord: Fetchable {
     static var endpoint: String { "revisionRecord" }
+}
+
+extension URL {
+    mutating func appendQueryItem(name: String, value: String?) {
+        debugPrint("SENDING KV JSON " + value!)
+        guard var urlComponents = URLComponents(string: absoluteString) else { return }
+        var queryItems: [URLQueryItem] = urlComponents.queryItems ??  []
+        
+        let queryItem = URLQueryItem(name: name, value: value)
+        queryItems.append(queryItem)
+        urlComponents.queryItems = queryItems
+        
+        self = urlComponents.url!
+    }
+}
+
+// MARK:- Testing only
+public extension IBMMongoRemote {
+    func clearRemote(completion: @escaping (Error) -> Void){
+        debugPrint("DELETE CALLED")
+        let urlString = url + "revisionRecord/"
+        let requestURL = URL(string: urlString)
+        var request = URLRequest(url: requestURL!)
+        
+        request.httpMethod = Method.DELETE.rawValue
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let requestTask = URLSession.shared.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) in
+            
+            guard let response = response as? HTTPURLResponse,
+                error == nil else { // check for networking error
+                    completion(HTTPStatusCode.noResponse)
+                    return
+            }
+            
+            guard (200 ... 299) ~= response.statusCode else {
+                debugPrint("statusCode should be 2xx, but is \(response.statusCode)")
+                completion(HTTPStatusCode.init(rawValue: response.statusCode)!)
+                return
+            }
+            
+            if(error != nil) {
+                debugPrint(error.debugDescription)
+                completion(HTTPStatusCode.noResponse)
+                return
+            }
+            return
+        }
+        requestTask.resume()
+    }
 }

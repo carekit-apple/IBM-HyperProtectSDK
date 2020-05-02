@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let store = OCKStore(
             name: "sample",
-            type: .onDisk,
+            type: .inMemory,
             remote: ibmRemote)
         
         store.populateSampleData()
