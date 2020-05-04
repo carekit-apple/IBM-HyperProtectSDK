@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "CareKit",
-        "repositoryURL": "git@github.com:carekit-apple/CareKit-Private.git",
+        "repositoryURL": "git@github.com:carekit-apple/CareKit.git",
         "state": {
-          "branch": "ibm-hyperprotect-sdk",
-          "revision": "486a22ffea80f4258049faa2aa4eab0669f1004b",
+          "branch": "master",
+          "revision": "7b3c39289dba971bbda268846265e6d70ed4b4bf",
           "version": null
         }
       }

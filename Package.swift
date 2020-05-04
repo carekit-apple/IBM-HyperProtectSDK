@@ -3,22 +3,22 @@
 import PackageDescription
 
 let package = Package(
-    name: "CareKitHyperProtectSDK",
+    name: "HyperProtectSyncSDK",
     platforms: [.iOS(.v13)],
     products: [
         .library(
-            name: "CareKitHyperProtectSDK",
-            targets: ["CareKitHyperProtectSDK"]),
+            name: "HyperProtectSyncSDK",
+            targets: ["HyperProtectSyncSDK"]),
     ],
     dependencies: [
-        .package(url: "git@github.com:carekit-apple/CareKit-Private.git", .branch("ibm-hyperprotect-sdk")),
+        .package(url: "git@github.com:carekit-apple/CareKit.git", .branch("master")),
     ],
     targets: [
         .target(
-            name: "CareKitHyperProtectSDK",
+            name: "HyperProtectSyncSDK",
             dependencies: ["CareKitStore"]),
         .testTarget(
-            name: "CareKitHyperProtectSDKTests",
-            dependencies: ["CareKitHyperProtectSDK", "CareKitStore"]),
+            name: "HyperProtectSyncSDKTests",
+            dependencies: ["HyperProtectSyncSDK", "CareKitStore"]),
     ]
 )
