@@ -92,6 +92,7 @@ fastlane/test_output
 iOSInjectionProject/
 *.history
 *.idea
-.pem
-.ppk
-.crt
+*.pem
+*.ppk
+*.crt
+*.pdf
