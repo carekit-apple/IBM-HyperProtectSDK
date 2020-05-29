@@ -34,7 +34,9 @@ import CareKitStore
 public final class IBMMongoRemote: OCKRemoteSynchronizable {
     private let url: String
     private let timeout: TimeInterval
-
+    
+    private var urlSession: URLSession
+    
     private enum Method : String {
         case GET
         case POST
@@ -45,11 +47,15 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///
     /// - Parameters:
     ///   - apiLocation: uri format (https://ip:port)
+    ///   - certificate: name of the authentication challenge certificate saved to the project directory ('der' filetype)
     ///   - apiTimeOut: timeout
     ///   - appleId: Apple ID  used for authentication and authorization
-    public init(apiLocation : String = "http://localhost:3000/", apiTimeOut : TimeInterval = 2){
+    public init(apiLocation : String = "http://localhost:3000/", certificate : String = "carekit-root", apiTimeOut : TimeInterval = 2){
         self.url = apiLocation
         self.timeout = apiTimeOut
+        
+        let urlSessionDelegate = IBMMongoRemoteURLSessionDelegate(certificate: certificate)
+        urlSession = URLSession(configuration: .default, delegate: urlSessionDelegate, delegateQueue: nil)
     }
     
     // MARK: OCKRemoteSynchronizable
@@ -114,7 +120,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         let outputStr = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
         debugPrint("Pushing this JSON to backend :" + outputStr!)
         
-        let requestTask = URLSession.shared.dataTask(with: request) {
+        let requestTask = urlSession.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
             
             guard let response = response as? HTTPURLResponse,
@@ -164,10 +170,9 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         debugPrint(request)
-
-        let requestTask = URLSession.shared.dataTask(with: request) {
+        
+        let requestTask = urlSession.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
-            
             guard let data = data,
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for networking error
@@ -193,6 +198,35 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         }
         
         requestTask.resume()
+    }
+}
+
+private final class IBMMongoRemoteURLSessionDelegate: NSObject, URLSessionDataDelegate {
+    private var certificate: String
+    
+    init(certificate: String) {
+        self.certificate = certificate
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        let protectionSpace = challenge.protectionSpace
+        
+        guard let serverTrust = protectionSpace.serverTrust else {
+            completionHandler(.performDefaultHandling, nil)
+            return
+        }
+        
+        guard let certPath = Bundle.main.path(forResource: certificate, ofType: "der") else {
+            completionHandler(.performDefaultHandling, nil)
+            return
+        }
+        
+        let certData = NSData(contentsOfFile: certPath)
+        let cert = SecCertificateCreateWithData(kCFAllocatorDefault, certData!)
+        SecTrustSetAnchorCertificates(serverTrust, [cert] as CFArray)
+        
+        let credential = URLCredential(trust: serverTrust)
+        completionHandler(.useCredential, credential)
     }
 }
 
@@ -228,7 +262,7 @@ public extension IBMMongoRemote {
         request.httpMethod = Method.DELETE.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let requestTask = URLSession.shared.dataTask(with: request) {
+        let requestTask = urlSession.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
             
             guard let response = response as? HTTPURLResponse,
