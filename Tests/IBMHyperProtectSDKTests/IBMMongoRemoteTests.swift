@@ -29,14 +29,166 @@
  */
 
 import XCTest
-//@testable import CareKitHyperProtectSDK
+import CareKitStore
+@testable import IBMHyperProtectSDK
 
 final class IBMMongoRemoteTests: XCTestCase {
     
+    /**
+     Creates a remote store. Input apiLocation.
+     */
+    func createStore(completion: @escaping (OCKStore?, UUID?, Error?) -> Void) {
+        let remote = IBMMongoRemote(apiLocation: "")
+        let store = OCKStore(name: "CareStore", type: .onDisk, remote: remote)
+        let schedule = OCKSchedule.dailyAtTime(hour: 0, minutes: 0, start: Date(), end: nil, text: nil)
+        let task = OCKTask(id: "task", title: nil, carePlanUUID: nil, schedule: schedule)
+        
+        store.addTask(task)
+        
+        store.fetchTask(withID: "task") { result in
+            switch result {
+            case .success(let task):
+                completion(store, task.uuid!, nil)
+            case .failure(let error):
+                completion(nil, nil, error)
+            }
+        }
+    }
+    
     func testInitializer() {
+        
+    }
+    
+    /**
+     Checks if a small payload can successfully save to CareKitStore. Increment the taskOccurrenceIndex by 1 after each run.
+     */
+    func testSmallPayload() {
+        let expectation = self.expectation(description: "Add Outcome")
+        
+        createStore() { store, uuid, error in
+            if let store = store, let uuid = uuid {
+                let outcome = OCKOutcome(taskUUID: uuid, taskOccurrenceIndex: 0, values: [OCKOutcomeValue(String(repeating: "0", count: 50000))])
+                
+                store.addOutcome(outcome, callbackQueue: .main) { result in
+                    switch result {
+                    case .success(_):
+                        store.synchronize() { error in
+                            if let error = error {
+                                print(error.localizedDescription)
+                                XCTAssert(false)
+                            } else {
+                                XCTAssert(true)
+                            }
+                            
+                            expectation.fulfill()
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        XCTAssert(false)
+                        
+                        expectation.fulfill()
+                    }
+                }
+            } else {
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                XCTAssert(false)
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    /**
+     Checks if a large payload can successfully save to CareKitStore. Increment the taskOccurrenceIndex by 1 after each run.
+     */
+    func testLargePayload() {
+        let expectation = self.expectation(description: "Add Outcome")
+        
+        createStore() { store, uuid, error in
+            if let store = store, let uuid = uuid {
+                let outcome = OCKOutcome(taskUUID: uuid, taskOccurrenceIndex: 0, values: [OCKOutcomeValue(String(repeating: "0", count: 100000))])
+                
+                store.addOutcome(outcome, callbackQueue: .main) { result in
+                    switch result {
+                    case .success(_):
+                        store.synchronize() { error in
+                            if let error = error {
+                                print(error.localizedDescription)
+                                XCTAssert(false)
+                            } else {
+                                XCTAssert(true)
+                            }
+                            
+                            expectation.fulfill()
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        XCTAssert(false)
+                        
+                        expectation.fulfill()
+                    }
+                }
+            } else {
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                XCTAssert(false)
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    /**
+     Checks if two small payloads in an array can successfully save to CareKitStore. Increment the taskOccurrenceIndex by 1 after each run.
+     */
+    func testPayloadArray() {
+        let expectation = self.expectation(description: "Add Outcome")
+        
+        createStore() { store, uuid, error in
+            if let store = store, let uuid = uuid {
+                let outcome = OCKOutcome(taskUUID: uuid, taskOccurrenceIndex: 0, values: [OCKOutcomeValue(String(repeating: "0", count: 50000))])
+                
+                store.addOutcomes([outcome, outcome], callbackQueue: .main) { result in
+                    switch result {
+                    case .success(_):
+                        store.synchronize() { error in
+                            if let error = error {
+                                print(error.localizedDescription)
+                                XCTAssert(false)
+                            } else {
+                                XCTAssert(true)
+                            }
+                            
+                            expectation.fulfill()
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        XCTAssert(false)
+                        
+                        expectation.fulfill()
+                    }
+                }
+            } else {
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                XCTAssert(false)
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
     }
     
     static var allTests = [
-        ("testInitializer", testInitializer)
+        ("testInitializer", testInitializer),
+        ("testPayloadTooLarge", testSmallPayload),
+        ("testLargePayload", testLargePayload),
+        ("testPayloadArray", testPayloadArray)
     ]
 }
