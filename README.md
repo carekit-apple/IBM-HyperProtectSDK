@@ -37,7 +37,7 @@ and pass it in to your OCKStore:
 
 ```swift
 
-let remote = IBMMongoRemote()
+let remote = IBMMongoRemote(/* credentials and connection information */)
 let store = OCKStore(name: "SampleAppStore", type:
   inMemory, remote: remote)
 ```
@@ -50,8 +50,9 @@ We're always looking for contributors to help improve the CareKit and IBM Hyper 
 
 ### Known Issues:
 
-When using the IBM Hyper Protect SDK, you must also include CareKit in your app via SPM. Including CareKit using the traditional sub-project approach can cause runtime errors in the CoreData stack.
+* When using the IBM Hyper Protect SDK, you must also include CareKit in your app via SPM. Including CareKit using the traditional sub-project approach can cause runtime errors in the CoreData stack.
+* As XCode and iOS prevent insecure connections by default, you *must* use SSL/TLS (https) for your connections. There are work-arounds but given that security is a core tennant of this SDK, we do not recommend skipping SSL/TLS, even in developement/testing.
 
-### Troubleshooting:
+### Self-Paced Lab:
 
-Work in progress
+Detailed end-to-end instructions for deploying the [IBM-HyperProtectMBaaS](https://github.com/carekit-apple/IBM-HyperProtectMBaaS) and the iOS SDK (this project) with a CareKit sample app are provides [here](https://github.com/THINKLab2020/carekit-hyperprotect-lab).
