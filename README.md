@@ -44,7 +44,7 @@ let store = OCKStore(name: "SampleAppStore", type:
   inMemory, remote: remote)
 ```
 
-By default if no backend API information is passed in, it will default to `https://localhost:3000` . Pass in the `apiLocation` parameter to point to your IBM Hyper Protect MBaaS deployed locally for development or in IBM Cloud.
+By default if no backend API information is passed in, it will default to `https://localhost:3000` . Pass in the `apiLocation` parameter to point to your IBM Hyper Protect MBaaS deployed locally for development or in IBM Cloud. If the MBaaS is deployed to the IBM Cloud, a certificate may be needed to go through the authentication challenge. This certificate may be added to your project folder. If no value is passed into `certificate`, it will default to `carekit-root`.
 
 ### Contributing
 
