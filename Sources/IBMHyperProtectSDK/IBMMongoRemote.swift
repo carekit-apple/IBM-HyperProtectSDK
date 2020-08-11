@@ -50,7 +50,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
     ///   - certificate: name of the authentication challenge certificate saved to the project directory ('der' filetype)
     ///   - apiTimeOut: timeout
     ///   - appleId: Apple ID  used for authentication and authorization
-    public init(apiLocation : String = "http://localhost:3000/", certificate : String = "carekit-root", apiTimeOut : TimeInterval = 2){
+    public init(apiLocation : String = "https://localhost:3000/", certificate : String = "carekit-root", apiTimeOut : TimeInterval = 2){
         self.url = apiLocation
         self.timeout = apiTimeOut
         
