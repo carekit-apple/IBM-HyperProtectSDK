@@ -79,7 +79,8 @@ final class IBMMongoRemoteTests: XCTestCase {
      */
     func createStore(taskID: UUID, completion: @escaping (OCKStore?, UUID?, Error?) -> Void) {
         // Uncomment to test remote
-        let remote = IBMMongoRemote(apiLocation: "http://localhost:3000/")
+        let remote = IBMMongoRemote(apiLocation: "https://localhost:3000/")
+        remote.automaticallySynchronizes = false;
         let store = OCKStore(name: "CareStore", type: .inMemory, remote: remote)
         let schedule = OCKSchedule.dailyAtTime(hour: 0, minutes: 0, start: Date(), end: nil, text: nil)
         let task = OCKTask(id: "\(taskID)", title: nil, carePlanUUID: nil, schedule: schedule)
@@ -108,13 +109,12 @@ final class IBMMongoRemoteTests: XCTestCase {
         
         createStore(taskID: UUID()) { store, uuid, error in
             if let store = store, let uuid = uuid {
-                let outcome = OCKOutcome(taskUUID: uuid, taskOccurrenceIndex: 0, values: [OCKOutcomeValue(String(repeating: "0", count: 2))])
+                let outcome = OCKOutcome(taskUUID: uuid, taskOccurrenceIndex: 0, values: [OCKOutcomeValue(String(repeating: "0", count: 5000))])
                 
                  store.addOutcome(outcome, callbackQueue: .main) { result in
                     switch result {
                     case .success(_):
                         // Uncomment to test remote
-                        try! self.performSynchronously { _ in
                         store.synchronize() { error in
                             if let error = error {
                                 print(error.localizedDescription)
@@ -125,15 +125,14 @@ final class IBMMongoRemoteTests: XCTestCase {
                             
                             expectation.fulfill()
                         }
-                        }
                         
                         // Comment to test Remote
                         //XCTAssert(true)
-                        expectation.fulfill()
+                        //expectation.fulfill()
                     case .failure(let error):
                         print(error.localizedDescription)
                         XCTAssert(false)
-                        
+
                         expectation.fulfill()
                     }
                 }
@@ -147,7 +146,7 @@ final class IBMMongoRemoteTests: XCTestCase {
             }
         }
         
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
     }
     
     /**
@@ -177,7 +176,7 @@ final class IBMMongoRemoteTests: XCTestCase {
                         
                         // Comment to test remote
                         //XCTAssert(true)
-                        expectation.fulfill()
+                        //expectation.fulfill()
                     case .failure(let error):
                         print(error.localizedDescription)
                         XCTAssert(false)
@@ -194,7 +193,7 @@ final class IBMMongoRemoteTests: XCTestCase {
             }
         }
         
-        waitForExpectations(timeout: 2, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
     
     /**
@@ -207,8 +206,10 @@ final class IBMMongoRemoteTests: XCTestCase {
             if let store = store, let uuid = uuid {
                 let outcome1 = OCKOutcome(taskUUID: uuid, taskOccurrenceIndex: 0, values: [OCKOutcomeValue(String(repeating: "0", count: 50000))])
                 let outcome2 = OCKOutcome(taskUUID: uuid, taskOccurrenceIndex: 1, values: [OCKOutcomeValue(String(repeating: "0", count: 50000))])
-                
-                store.addOutcomes([outcome1, outcome2], callbackQueue: .main) { result in
+                let outcome3 = OCKOutcome(taskUUID: uuid, taskOccurrenceIndex: 1, values: [OCKOutcomeValue(String(repeating: "0", count: 50000))])
+                let outcome4 = OCKOutcome(taskUUID: uuid, taskOccurrenceIndex: 1, values: [OCKOutcomeValue(String(repeating: "0", count: 50000))])
+
+                store.addOutcomes([outcome1, outcome2, outcome3, outcome4], callbackQueue: .main) { result in
                     switch result {
                     case .success(_):
                         // Uncomment to test remote
@@ -225,7 +226,7 @@ final class IBMMongoRemoteTests: XCTestCase {
                         
                         // Comment to test remote
                         //XCTAssert(true)
-                        expectation.fulfill()
+                        //expectation.fulfill()
                     case .failure(let error):
                         print(error.localizedDescription)
                         XCTAssert(false)
@@ -242,7 +243,7 @@ final class IBMMongoRemoteTests: XCTestCase {
             }
         }
         
-        waitForExpectations(timeout: 2, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
     }
     
     static var allTests = [
