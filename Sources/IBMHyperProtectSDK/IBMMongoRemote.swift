@@ -117,8 +117,8 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         request.httpBody = try! JSONEncoder().encode(data)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let outputStr = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
-        debugPrint("Pushing this JSON to backend :" + outputStr!)
+        //let outputStr = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
+        //debugPrint("Pushing this JSON to backend :" + outputStr!)
         
         let requestTask = urlSession.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
@@ -169,7 +169,7 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
         request.httpMethod = Method.GET.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        debugPrint(request)
+        //debugPrint(request)
         
         let requestTask = urlSession.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
@@ -187,11 +187,28 @@ public final class IBMMongoRemote: OCKRemoteSynchronizable {
             }
             
             do {
-                let outputStr = String(data: data, encoding: String.Encoding.utf8) as String?
-                debugPrint("JSON returned : \n" + outputStr!)
-                let result = try JSONDecoder().decode(F.self, from: data)
+                //let outputStr = String(data: data, encoding: String.Encoding.utf8) as String?
+                //debugPrint("JSON returned : \n" + outputStr!)
+                var result : F? = nil;
+
+                do {
+                    result = try JSONDecoder().decode(F.self, from: data)
+                } catch let DecodingError.dataCorrupted(context) {
+                    print(context)
+                } catch let DecodingError.keyNotFound(key, context) {
+                    print("Key '\(key)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.valueNotFound(value, context) {
+                    print("Value '\(value)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.typeMismatch(type, context)  {
+                    print("Type '\(type)' mismatch:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch {
+                    print("error: ", error)
+                }
                 
-                completion(.success(result))
+                completion(.success(result!))
             } catch {
                 completion(.failure(error))
             }
@@ -239,7 +256,7 @@ extension OCKRevisionRecord: Fetchable {
 
 extension URL {
     mutating func appendQueryItem(name: String, value: String?) {
-        debugPrint("SENDING KV JSON " + value!)
+        //debugPrint("SENDING KV JSON " + value!)
         guard var urlComponents = URLComponents(string: absoluteString) else { return }
         var queryItems: [URLQueryItem] = urlComponents.queryItems ??  []
         
